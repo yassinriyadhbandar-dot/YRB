@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Mastery Lab | Yaseen Riyadh Bandar</title>
+    <meta name="description"
+        content="My journey to English fluency - A curated roadmap of YouTube channels and resources that shaped my professional English skills.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        cyber: '#00d4ff',
+                        gold: '#ffd700',
+                        youtube: '#FF0000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .glow-red {
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-red {
+            background: linear-gradient(135deg, #FF0000, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .channel-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.25);
+            border-color: rgba(255, 0, 0, 0.5);
+        }
+
+        .channel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .channel-card:hover::before {
+            left: 100%;
+        }
+
+        .youtube-btn {
+            background: linear-gradient(135deg, #FF0000, #cc0000);
+            transition: all 0.3s ease;
+        }
+
+        .youtube-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .step-badge {
+            background: linear-gradient(135deg, #FF0000, #ff6b6b);
+            color: white;
+        }
+
+        .progress-line {
+            background: linear-gradient(90deg, #FF0000, #ff6b6b, #ffd700);
+        }
+
+        .level-badge {
+            background: linear-gradient(135deg, #00d4ff, #0066ff);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+            }
+        }
+
+        .hero-gradient {
+            background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 107, 107, 0.05));
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-white min-h-screen">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold gradient-text">YRB</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-cyber transition-colors">Home</a>
+                    <a href="projects.html" class="hover:text-cyber transition-colors">Achievements</a>
+                    <a href="webdev.html" class="hover:text-cyber transition-colors">Web Development</a>
+                    <a href="creative.html" class="hover:text-cyber transition-colors">Creative</a>
+                    <a href="#" class="text-youtube font-semibold"><i class="fab fa-youtube mr-1"></i>English Lab</a>
+                    <a href="library.html" class="hover:text-gold transition-colors"><i
+                            class="fas fa-book mr-1"></i>Library</a>
+                    <a href="index.html#contact" class="hover:text-cyber transition-colors">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block py-2 hover:text-cyber">Home</a>
+
+                <a href="projects.html" class="block py-2 hover:text-cyber">Achievements</a>
+                <a href="webdev.html" class="block py-2 hover:text-cyber">Web Development</a>
+                <a href="creative.html" class="block py-2 hover:text-cyber">Creative</a>
+                <a href="#" class=" text-youtube font-semibold py-2"><i class="fab fa-youtube mr-1"></i>English Lab</a>
+                <a href="library.html" class="block py-2 hover:text-gold"><i class="fas fa-book mr-1"></i>Library</a>
+                <a href="index.html#contact" class="block py-2 hover:text-cyber">Contact</a>
+            </div>
+        </div>
+
+
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 relative hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center fade-up">
+                <div class="inline-flex items-center gap-2 mb-6">
+                    <i class="fab fa-youtube text-youtube text-4xl"></i>
+                    <span class="level-badge px-4 py-2 rounded-full text-sm font-bold text-white">C1 Advanced
+                        Level</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    The English <span class="gradient-text-red">Mastery</span> <span class="gradient-text">Lab</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-4">My Journey to Fluency</p>
+                <p class="text-gray-400 max-w-3xl mx-auto text-lg">
+                    A curated roadmap of the YouTube channels and playlists that shaped my professional English skills.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About My English Section -->
+    <section class="py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass rounded-3xl p-8 md:p-12 fade-up" style="border: 1px solid rgba(0, 212, 255, 0.2);">
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <div class="flex-shrink-0 text-center">
+                        <div
+                            class="w-32 h-32 bg-gradient-to-br from-cyber to-blue-600 rounded-full flex items-center justify-center glow mb-4 mx-auto">
+                            <span class="text-4xl font-bold">C1</span>
+                        </div>
+                        <p class="text-cyber font-semibold">Advanced Proficiency</p>
+                    </div>
+                    <div class="flex-1">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                            <i class="fas fa-language text-cyber mr-3"></i>About My English Journey
+                        </h2>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            As a <strong class="text-gold">Oil & Gas Engineer</strong> with a passion for technology and
+                            global communication, I've invested years in mastering English to a <strong
+                                class="text-cyber">C1 Advanced level</strong>.
+                            This journey wasn't just about learning a language—it was about opening doors to
+                            international
+                            research, professional networking, and career opportunities.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            From technical documentation to presenting at conferences, from consuming cutting-edge AI
+                            content
+                            to collaborating with international teams—English has become my second nature. Below is the
+                            exact
+                            roadmap I followed, featuring the <strong class="text-youtube">YouTube channels</strong>
+                            that transformed my skills.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-1.5 py-2 bg-cyber/20 text-cyber rounded-full text-sm font-medium">
+                                <i class="fas fa-microphone mr-2"></i>Fluent Speaking
+                            </span>
+                            <span class="px-1.5 py-2 bg-gold/20 text-gold rounded-full text-sm font-medium">
+                                <i class="fas fa-pen mr-2"></i>Professional Writing
+                            </span>
+                            <span class="px-1.5 py-2 bg-youtube/20 text-youtube rounded-full text-sm font-medium">
+                                <i class="fas fa-headphones mr-2"></i>Native Listening
+                            </span>
+                            <span class="px-1.5 py-2 bg-purple-500/20 text-purple-400 rounded-full text-sm font-medium">
+                                <i class="fas fa-book-open mr-2"></i>Academic Reading
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Path Progress -->
+    <section class="py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 fade-up">
+                <h3 class="text-xl font-bold mb-2">My <span class="gradient-text-red">Learning Path</span></h3>
+                <p class="text-gray-400">Follow these steps to achieve English fluency</p>
+            </div>
+            <div class="flex flex-wrap justify-center items-center gap-4 md:gap-8 fade-up">
+                <div class="flex items-center gap-2">
+                    <span class="step-badge w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span>
+                    <span class="text-sm font-medium">Foundation</span>
+                </div>
+                <div class="hidden md:block w-12 h-1 progress-line rounded-full"></div>
+                <div class="flex items-center gap-2">
+                    <span class="step-badge w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+                    <span class="text-sm font-medium">Grammar & Vocab</span>
+                </div>
+                <div class="hidden md:block w-12 h-1 progress-line rounded-full"></div>
+                <div class="flex items-center gap-2">
+                    <span class="step-badge w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+                    <span class="text-sm font-medium">Listening & Speaking</span>
+                </div>
+                <div class="hidden md:block w-12 h-1 progress-line rounded-full"></div>
+                <div class="flex items-center gap-2">
+                    <span class="step-badge w-8 h-8 rounded-full flex items-center justify-center font-bold">4</span>
+                    <span class="text-sm font-medium">Advanced & Native</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 1: Foundation -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-youtube to-red-700 rounded-2xl flex items-center justify-center">
+                        <span class="text-xl font-bold">1</span>
+                    </div>
+                    <div>
+                        <span class="text-youtube text-sm font-semibold">STEP 1</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">The Foundation</h2>
+                        <p class="text-gray-400">Building core English fundamentals from scratch</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- ZAmericanEnglish -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/ZamericanEnglish.png" alt="ZAmericanEnglish"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">ZAmericanEnglish</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-youtube/20 text-youtube rounded-full">Arabic-English</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        The best channel for Arabic speakers starting their English journey. Clear explanations and
+                        structured lessons.
+                    </p>
+                    <a href="https://www.youtube.com/@ZAmericanEnglish" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Bob the Canadian -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Bob the candian.png" alt="Bob the Canadian"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Bob the Canadian</h3>
+                            <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">Beginner
+                                Friendly</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Real-life English with slow, clear pronunciation. Perfect for building listening comprehension.
+                    </p>
+                    <a href="https://youtube.com/@learnenglishwithbobthecanadian" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- A.J. Hoge -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/AJ hoge.png" alt="A.J. Hoge" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">A.J. Hoge</h3>
+                            <span class="text-xs px-2 py-1 bg-orange-500/20 text-orange-400 rounded-full">Effortless
+                                English</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Revolutionary method focusing on natural acquisition. Changed how I approach language learning.
+                    </p>
+                    <a href="https://youtube.com/@ajhogeeffortlessenglish" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 2: Grammar & Communication -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-youtube to-red-700 rounded-2xl flex items-center justify-center">
+                        <span class="text-xl font-bold">2</span>
+                    </div>
+                    <div>
+                        <span class="text-youtube text-sm font-semibold">STEP 2</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Grammar & Communication</h2>
+                        <p class="text-gray-400">Mastering structure and fluent speaking</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- BBC Learning English -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/BBC english.png" alt="BBC Learning English"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">BBC Learning English</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">Professional</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        The gold standard for British English and professional communication skills.
+                    </p>
+                    <a href="https://youtube.com/@bbclearningenglish" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- English with Lucy -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Lucy.png" alt="English with Lucy" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">English with Lucy</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-pink-500/20 text-pink-400 rounded-full">Pronunciation</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Excellent for British accent, advanced vocabulary, and professional communication.
+                    </p>
+                    <a href="https://youtube.com/@englishwithlucy" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Speak English With Tiffani -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Tiffany.png" alt="Speak English With Tiffany"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Speak English With Tiffani</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full">Speaking</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Interactive speaking practice with real conversation techniques and confidence building.
+                    </p>
+                    <a href="https://youtube.com/@speakenglishwithtiffani" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Linguamarina -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/lingu.png" alt="Linguamarina" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Linguamarina</h3>
+                            <span class="text-xs px-2 py-1 bg-teal-500/20 text-teal-400 rounded-full">American
+                                English</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Learn American English from a non-native who achieved native-level fluency. Super motivating!
+                    </p>
+                    <a href="https://youtube.com/@linguamarina" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Gabby Wallace -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Go natural english.png" alt="Gabby Wallace"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Gabby Wallace</h3>
+                            <span class="text-xs px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">Go
+                                Natural</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Natural English speaking patterns and everyday expressions for fluent conversations.
+                    </p>
+                    <a href="https://www.youtube.com/@gonaturalenglishlessons" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- MSA Official -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/MSA english.png" alt="MSA Official"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">MSA Official</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded-full">Academic</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Comprehensive English learning for Arab students with excellent structured content.
+                    </p>
+                    <a href="https://youtube.com/@msa.official" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 3: Listening & Thinking -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-youtube to-red-700 rounded-2xl flex items-center justify-center">
+                        <span class="text-xl font-bold">3</span>
+                    </div>
+                    <div>
+                        <span class="text-youtube text-sm font-semibold">STEP 3</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Listening & Critical Thinking</h2>
+                        <p class="text-gray-400">Developing native-level comprehension through immersion</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- TED-Ed -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/TED english.png" alt="TED" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">TED</h3>
+                            <span class="text-xs px-2 py-1 bg-red-500/20 text-red-400 rounded-full">Educational</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Learn complex topics in English. Perfect for building vocabulary and critical thinking
+                        simultaneously.
+                    </p>
+                    <a href="https://www.youtube.com/@TED" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Vsauce -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Vsauce.png" alt="Vsauce" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Vsauce</h3>
+                            <span class="text-xs px-2 py-1 bg-green-500/20 text-green-400 rounded-full">Science</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Mind-bending content that trains your brain to think in English. Advanced vocabulary naturally.
+                    </p>
+                    <a href="https://youtube.com/@vsauce" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- SmarterEveryDay -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/smarter everyday.png" alt="SmarterEveryDay"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">SmarterEveryDay</h3>
+                            <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">Engineering</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Engineering and science content. As an engineer, this helped me learn technical English
+                        naturally.
+                    </p>
+                    <a href="https://youtube.com/@smartereveryday" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Step 4: Advanced & Personal Development -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-gold to-yellow-600 rounded-2xl flex items-center justify-center">
+                        <span class="text-xl font-bold text-dark">4</span>
+                    </div>
+                    <div>
+                        <span class="text-gold text-sm font-semibold">STEP 4</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Advanced & Personal Growth</h2>
+                        <p class="text-gray-400">Native-level content for continuous improvement</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dan Koe -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Dan koe.png" alt="Dan Koe" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Dan Koe</h3>
+                            <span class="text-xs px-2 py-1 bg-gold/20 text-gold rounded-full">Mindset</span>
+                            <span class="text-xs px-2 py-1 bg-cyber/20 text-cyber rounded-full">Create</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Dan Koe talks about self-improvement and online work.
+                        His videos help you think better and grow personally.
+                    </p>
+                    <a href="https://www.youtube.com/@DanKoeTalks" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Bedros Keuilian -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Bedros.png" alt="Bedros Keuilian" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Bedros Keuilian</h3>
+                            <span class="text-xs px-2 py-1 bg-gray-500/20 text-gray-400 rounded-full">Business</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Business English and entrepreneurship mindset. Powerful motivational content with impactful
+                        vocabulary.
+                    </p>
+                    <a href="https://youtube.com/@bedroskeuilian" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Riddle -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Riddle.png" alt="Riddle" class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Riddle</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full">Motivation</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        High-energy motivational content. Perfect for learning powerful English expressions and idioms.
+                    </p>
+                    <a href="https://youtube.com/@vinemontanatv" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+
+                <!-- Actualized.org -->
+                <div class="channel-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/Actualized org.png" alt="Actualized.org"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h3 class="text-lg font-bold text-gold">Actualized.org</h3>
+                            <span
+                                class="text-xs px-2 py-1 bg-violet-500/20 text-violet-400 rounded-full">Philosophy</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">
+                        <i class="fas fa-quote-left text-youtube mr-2"></i>
+                        Deep philosophical content that challenges your thinking. Advanced English at its finest.
+                    </p>
+                    <a href="https://youtube.com/@actualizedorg" target="_blank"
+                        class="youtube-btn w-full py-3 rounded-full text-white font-semibold flex items-center justify-center gap-2">
+                        <i class="fab fa-youtube"></i> Open Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass rounded-3xl p-12 fade-up" style="border: 1px solid rgba(255, 0, 0, 0.2);">
+                <i class="fab fa-youtube text-6xl text-youtube mb-6"></i>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    Start Your <span class="gradient-text-red">Journey</span> Today
+                </h2>
+                <p class="text-gray-400 text-lg mb-8">
+                    English fluency opened countless doors for my career.
+                    Follow this roadmap, stay consistent, and you'll achieve the same results.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+
+                    <a href="index.html#contact"
+                        class="px-8 py-3 bg-gradient-to-r from-gold to-yellow-600 rounded-full font-semibold text-dark hover:scale-105 transition-transform glow-gold ">
+                        <i class="fas fa-book mr-2"></i>Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    © 2025 <span class="gradient-text font-semibold">Yaseen Riyadh Alameer</span>
+                    The English Mastery Lab.
+                </p>
+                <p class="text-gray-500 text-sm mt-2">Oil & Gas Engineer | Creative Designer | Lifelong Learner</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smart Navbar - hide on scroll down
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

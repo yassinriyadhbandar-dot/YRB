@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Achievements | Yaseen Riyadh Bandar</title>
+    <meta name="description"
+        content="Engineering projects, research publications, awards, and professional development of Yaseen Riyadh Bandar">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        cyber: '#00d4ff',
+                        gold: '#ffd700',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-card {
+            transition: all 0.4s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(135deg, #00d4ff, #ffd700);
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 24px;
+            width: 2px;
+            height: calc(100% - 16px);
+            background: linear-gradient(180deg, #00d4ff, transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1.5rem;
+        }
+
+        .video-btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+        }
+
+        .video-btn:active {
+            transform: scale(0.95);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-gold {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .badge-cyber {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .badge-green {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .cert-card {
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 1rem;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #ffd700;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold gradient-text">YRB</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-cyber transition-colors">Home</a>
+
+                    <a href="#" class="text-gold">Achievements</a>
+                    <a href="webdev.html" class="hover:text-cyber transition-colors">Web Development</a>
+                    <a href="creative.html" class="hover:text-cyber transition-colors">Creative</a>
+                    <a href="english.html" class="hover:text-cyber transition-colors">English Lab</a>
+                    <a href="library.html" class="hover:text-cyber transition-colors"><i
+                            class="fas fa-book mr-1"></i>Library</a>
+                    <a href="index.html#contact" class="hover:text-cyber transition-colors">Contact</a>
+                </div>
+               
+                <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden glass">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block py-2 hover:text-cyber">Home</a>
+                <a href="#" class="block py-2 text-gold">Achievements</a>
+                <a href="webdev.html" class="block py-2 hover:text-cyber">Web Development</a>
+                <a href="creative.html" class="block py-2 hover:text-cyber">Creative</a>
+                <a href="english.html" class="block py-2 hover:text-cyber">English Lab</a>
+                <a href="library.html" class="block py-2 hover:text-gold"><i class="fas fa-book mr-1"></i>Library</a>
+                <a href="index.html#contact" class="block py-2 hover:text-cyber">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 relative">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center fade-up">
+                <span class="badge badge-gold mb-4">Yaseen Riyadh Bandar Alameer</span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                    Projects, Events & <span class="gradient-text">Professional Development</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto">
+                    "Selected engineering projects, research contributions, professional events, and specialized
+                    training
+                    reflecting technical depth, field exposure, and continuous development in the Oil & Gas and Energy
+                    sector."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flagship Project Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass rounded-3xl p-8 md:p-12 fade-up glow-gold">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="badge badge-gold"><i class="fas fa-star mr-1"></i> Flagship Project</span>
+                    <span class="badge badge-green"><i class="fas fa-trophy mr-1"></i> Award Winning</span>
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="gradient-text">Graduation Project</span>
+                </h2>
+                <h3 class="text-xl md:text-2xl text-gray-300 mb-8">
+                    Pilot Project for Using Fog & Cloud Computing in Drilling Operations
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <h4 class="text-lg font-semibold text-cyber mb-4"><i
+                                class="fas fa-info-circle mr-2"></i>Overview</h4>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            A data-driven pilot project focused on enhancing drilling performance by predicting the
+                            Rate of Penetration (ROP) using Machine Learning techniques. This innovative approach
+                            combines advanced computing architectures with petroleum engineering to optimize drilling
+                            operations.
+                        </p>
+
+                        <h4 class="text-lg font-semibold text-gold mb-4"><i class="fas fa-tools mr-2"></i>Key
+                            Technologies & Tools</h4>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="badge badge-cyber">MATLAB</span>
+                            <span class="badge badge-cyber">Machine Learning</span>
+                            <span class="badge badge-purple">Fog Computing</span>
+                            <span class="badge badge-purple">Cloud Computing</span>
+                            <span class="badge badge-green">Web Dashboard</span>
+                            <span class="badge badge-green">Spotfire Software</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-cyber mb-4"><i class="fas fa-cogs mr-2"></i>Technical
+                            Implementation</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-gold mt-1"></i>
+                                <span>Developed ML model in MATLAB to predict ROP based on real drilling
+                                    parameters</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-gold mt-1"></i>
+                                <span>Compared predicted ROP with actual field ROP to evaluate accuracy</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-gold mt-1"></i>
+                                <span>Implemented Fog Computing for real-time, low-latency data processing</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fas fa-check-circle text-gold mt-1"></i>
+                                <span>Utilized Cloud Computing for remote monitoring and visualization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Video Section -->
+                <div class="mb-10">
+                    <h4 class="text-lg font-semibold text-gold mb-6 text-center">
+                        <i class="fas fa-video mr-2"></i>Project Presentation Video
+                    </h4>
+                    <div class="max-w-4xl mx-auto">
+                        <div class="video-container glow">
+                            <iframe src="https://www.youtube.com/embed/on0Cfka731I" title="Graduation Project Video"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impact & Recognition -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass rounded-2xl p-6 border hover:border-cyber/70">
+                        <h4 class="text-lg font-semibold text-cyber mb-4"><i class="fas fa-chart-line mr-2"></i>Impact &
+                            Value</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Supports future drilling decisions leveraging historical data</li>
+                            <li>• Enhances drilling efficiency significantly</li>
+                            <li>• Reduces non-productive time (NPT)</li>
+                            <li>• Improves operational planning and decision-making</li>
+                        </ul>
+                    </div>
+                    <div class="glass rounded-2xl p-6 border hover:border-gold/70">
+                        <h4 class="text-lg font-semibold text-gold mb-4"><i class="fas fa-medal mr-2"></i>Recognition &
+                            Achievements</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• <span class="text-gold font-semibold">Best Graduation Project in Iraq</span></li>
+                            <li>• Participated in SPE MENA Student Paper Contest</li>
+                            <li>• Selected among 110+ projects across MENA region</li>
+                            <li>• Reached final stage of SPE ATCE competition</li>
+                            <li>• Project spokesperson and presenter</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SPE MENA Manual Button -->
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="Files/22SPC MENA Manual (BSc) - STUDENTS (Final 1.0).pdf" target="_blank"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-gold to-yellow-600 rounded-full font-semibold text-dark hover:scale-105 transition-transform glow-gold text-sm">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>View Competition Manual</span>
+                        <i class="fas fa-external-link-alt text-xs"></i>
+                    </a>
+                    <button onclick="openLightbox()"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 glass rounded-full font-semibold hover:scale-105 transition-transform hover:glow text-sm border border-cyber/30">
+                        <i class="fas fa-certificate text-gold"></i>
+                        <span>View My Certificate</span>
+                        <i class="fas fa-image text-cyber text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Reports & Projects Section -->
+    <section class="py-16 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical <span class="gradient-text">Reports &
+                        Projects</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">A collection of professional reports, presentations, and
+                    exercises showcasing practical applications of petroleum engineering software and technical
+                    expertise.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- Landmark & Drilling Software -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-gold mb-6 flex items-center gap-2">
+                    <i class="fas fa-oil-well"></i> Landmark & Drilling Engineering
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Casing Wear Report -->
+                    <div class="glass rounded-2xl p-6 section-card fade-up">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-red-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-file-alt text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-white mb-1">Casing Wear Analysis Report</h4>
+                                <p class="text-gray-400 text-sm mb-3">Comprehensive analysis using Landmark's
+                                    specialized drilling software for casing wear prediction and mitigation strategies.
+                                </p>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="badge badge-cyber">Landmark</span>
+                                    <span class="badge badge-gold">Drilling</span>
+                                </div>
+                                <a href="Files/Casing Wear Report.pdf" target="_blank"
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full text-sm font-medium hover:scale-105 transition-all glow">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compass Software -->
+                    <div class="glass rounded-2xl p-6 section-card fade-up">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-compass text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-white mb-1">Compass Software Presentation</h4>
+                                <p class="text-gray-400 text-sm mb-3">Detailed presentation covering Landmark's Compass
+                                    directional drilling software capabilities and applications.</p>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="badge badge-purple">Landmark</span>
+                                    <span class="badge badge-cyber">Directional Drilling</span>
+                                </div>
+                                <a href="Files/Compass Software.pptx" target="_blank"
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full text-sm font-medium hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download PPTX
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Petrel Exercises -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-cyber mb-6 flex items-center gap-2">
+                    <i class="fas fa-database"></i> Petrel Reservoir Modeling Exercises
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Homework 1 -->
+                    <div class="glass rounded-2xl p-6 section-card fade-up">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-cube text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-white mb-1">Petrel Exercise 1</h4>
+                                <p class="text-gray-400 text-sm mb-3">Static reservoir modeling exercise using
+                                    Schlumberger's Petrel software - covering data import, well correlation, and surface
+                                    generation.</p>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="badge badge-green">Schlumberger</span>
+                                    <span class="badge badge-cyber">Reservoir Modeling</span>
+                                </div>
+                                <a href="Files/Homework 1 Petrel By Yaseen Riyadh Bandar.pdf" target="_blank"
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full text-sm font-medium hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Homework 2 -->
+                    <div class="glass rounded-2xl p-6 section-card fade-up">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-layer-group text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-lg font-bold text-white mb-1">Petrel Exercise 2</h4>
+                                <p class="text-gray-400 text-sm mb-3">Advanced reservoir modeling techniques including
+                                    property modeling, facies distribution, and volumetric calculations.</p>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="badge badge-cyber">Schlumberger</span>
+                                    <span class="badge badge-gold">Property Modeling</span>
+                                </div>
+                                <a href="Files/Homework 2 by Yaseen Riyadh.pdf" target="_blank"
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full text-sm font-medium hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EOR Presentation -->
+            <div class="mb-12">
+                <h3 class="text-xl font-bold text-gold mb-6 flex items-center gap-2">
+                    <i class="fas fa-vial"></i> Enhanced Oil Recovery
+                </h3>
+                <div class="max-w-2xl mx-auto">
+                    <div class="glass rounded-2xl p-6 section-card fade-up glow">
+                        <div class="flex items-start gap-4">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-oil-well mr-1 text-2xl text-dark"></i>
+
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gold mb-2">Enhanced Oil Recovery Presentation</h4>
+                                <p class="text-gray-300 mb-3">Comprehensive presentation prepared for Schlumberger
+                                    covering EOR methods, mechanisms, screening criteria, and field case studies.</p>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="badge badge-gold">Schlumberger</span>
+                                    <span class="badge badge-cyber">EOR</span>
+                                    <span class="badge badge-green">Technical Presentation</span>
+                                </div>
+                                <a href="Files/Presentation for Schlumberger about EOR.pptx" target="_blank"
+                                    class="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-gold to-yellow-600 rounded-full font-semibold text-dark hover:scale-105 transition-all glow-gold">
+                                    <i class="fas fa-download"></i> Download Presentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Publications -->
+    <section class="py-16 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Research & <span
+                        class="gradient-text">Publications</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-3xl p-8 section-card fade-up">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="badge badge-cyber"><i class="fas fa-book mr-1"></i> Peer-Reviewed</span>
+                        <span class="badge badge-green"><i class="fas fa-check mr-1"></i> Published</span>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gold mb-4">Published Research Paper</h3>
+                    <p class="text-gray-300 mb-6">
+                        Published in All Multidisciplinary Journal with focus on engineering optimization,
+                        data-driven decision-making, and applied petroleum engineering solutions.
+                        Research demonstrates strong analytical thinking and technical writing skills.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.allmultidisciplinaryjournal.com/search?q=Yaseen+RB+&search=search"
+                            target="_blank"
+                            class="px-6 py-3 glass rounded-full hover:glow transition-all flex items-center gap-2 hover:text-gold">
+                            <i class="fas fa-external-link-alt"></i> View on Journal
+                        </a>
+                        <a href="https://www.allmultidisciplinaryjournal.com/uploads/archives/20251129125208_692a9f2076ca7.pdf"
+                            target="_blank"
+                            class="px-6 py-3 bg-gradient-to-r from-cyber to-blue-600 rounded-full font-semibold hover:scale-105 transition-transform flex items-center gap-2 hover:text-black glow">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Awards & <span class="gradient-text">Recognitions</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="glass rounded-3xl p-8 text-center section-card fade-up">
+                    <div
+                        class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-gold to-yellow-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-trophy text-3xl text-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gold mb-2">Best Graduation Project</h3>
+                    <p class="text-cyber mb-2">Iraq National Award</p>
+                    <p class="text-gray-400 text-sm">Recognition for outstanding engineering innovation and research
+                        excellence</p>
+                </div>
+
+                <div class="glass rounded-3xl p-8 text-center section-card fade-up">
+                    <div
+                        class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-3xl text-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gold mb-2">HSE Excellence Award</h3>
+                    <p class="text-cyber mb-2">Majnoon Oil Field – 2025</p>
+                    <p class="text-gray-400 text-sm">Outstanding contribution to Health, Safety, and Environment
+                        operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-16 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional <span
+                        class="gradient-text">Certifications</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Safety & Compliance -->
+                <div class="glass rounded-2xl p-6 fade-up">
+                    <h3 class="text-lg font-bold text-gold mb-4 flex items-center gap-2">
+                        <i class="fas fa-hard-hat"></i> Safety & Compliance
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Rig Pass Certification</p>
+                            <p class="text-gray-400 text-sm">General Safety, PPE, Hazard Communication</p>
+                            <span class="badge badge-gold mt-2">2023</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">IADC Certificate – H₂S Safety</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Global HSE (H2S) Safety Awareness</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Fire Prevention & Control</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Radiation Safety Marker</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Ergonomics General Awareness - Global HSE</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Hazard Communication</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Explosives General Awareness</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-gold mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">H₂S Awareness Training</p>
+                            <p class="text-gray-400 text-sm">Basrah Oil Company</p>
+                            <span class="badge badge-gold mt-2">2021</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Training -->
+                <div class="glass rounded-2xl p-6 fade-up">
+                    <h3 class="text-lg font-bold text-cyber mb-4 flex items-center gap-2">
+                        <i class="fas fa-cogs"></i> Technical Training
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Petex Programs - (Prosper, GAP, MBAL)</p>
+                            <p class="text-gray-400 text-sm">Paid Online Courses</p>
+                            <span class="badge badge-cyber mt-2">2025</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3 cursor-pointer hover:border-cyber/50"
+                            onclick="openLightbox('assets/AspenHysis-certificate.jpg', 'Aspen HYSYS Certificate')">
+                            <p class="font-medium text-white">Aspen HYSYS <i
+                                    class="fas fa-eye text-xs text-cyber ml-2"></i></p>
+                            <p class="text-gray-400 text-sm">Process Simulation Training - Click to view</p>
+                            <span class="badge badge-cyber mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Production Simulator Training - BOC</p>
+                            <p class="text-gray-400 text-sm">Gas Separation, Sweetening & Glycol Dehydration (2-Month)
+                            </p>
+                            <span class="badge badge-cyber mt-2">BOC - 2021</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Static Reservoir Modeling</p>
+                            <p class="text-gray-400 text-sm">Using Petrel Software</p>
+                            <span class="badge badge-cyber mt-2">2021</span>
+                        </div>
+
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Cased Hole Logging Operations</p>
+                            <p class="text-gray-400 text-sm">SPE Training</p>
+                            <span class="badge badge-cyber mt-2">2021</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Perforation techniques</p>
+                            <p class="text-gray-400 text-sm">SPE Training</p>
+                            <span class="badge badge-cyber mt-2">2021</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Downhole Loses techniques</p>
+                            <p class="text-gray-400 text-sm">SPE Training</p>
+                            <span class="badge badge-cyber mt-2">2021</span>
+                        </div>
+
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Techlog Formation Evaluation</p>
+                            <p class="text-gray-400 text-sm">Schlumberger & IENA Joint Course</p>
+                            <span class="badge badge-cyber mt-2">2020</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">English Business & Job Interview</p>
+                            <p class="text-gray-400 text-sm">Quality World Company</p>
+                            <span class="badge badge-cyber mt-2">2020</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Governance & Professional -->
+                <div class="glass rounded-2xl p-6 fade-up">
+                    <h3 class="text-lg font-bold text-purple-400 mb-4 flex items-center gap-2">
+                        <i class="fas fa-briefcase"></i> Professional Conduct
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Anti-Corruption & Business Conduct</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Internal Controls Training - Everyone's Responsibility</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Global Diversity, Equity & Inclusion</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Life Rules & CFA Training</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">COVID-19 Awareness Training</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Introduction to the Code of Business Conduct</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Halliburton Information Security Awareness</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                        <div class="cert-card glass rounded-lg p-3">
+                            <p class="font-medium text-white">Global HSE Fatigue Management Awareness</p>
+                            <p class="text-gray-400 text-sm">Halliburton Oil Company</p>
+                            <span class="badge badge-purple mt-2">2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendation Letters -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <span class="badge badge-gold mb-4"><i class="fas fa-award mr-2"></i>PROFESSIONAL ENDORSEMENTS</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Recommendation <span
+                        class="gradient-text">Letters</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Letter 1 -->
+                <div class="glass rounded-3xl p-8 section-card fade-up"
+                    style="border: 1.5px solid rgba(255, 215, 0, 0.2);">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-600 rounded-2xl flex items-center justify-center glow-gold">
+                            <i class="fas fa-file-signature text-2xl text-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gold">Recommendation Letter #1</h3>
+                            <p class="text-gray-400 text-sm">Professional Reference</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Official recommendation letter highlighting professional capabilities, work ethic, and technical
+                        expertise in the petroleum engineering field.
+                    </p>
+                    <a href="Files/Recommendation letter.pdf" target="_blank"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold to-yellow-600 rounded-full font-semibold text-dark hover:scale-105 transition-transform glow-gold">
+                        <i class="fas fa-file-pdf"></i> View Letter
+                        <i class="fas fa-external-link-alt text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Letter 2 -->
+                <div class="glass rounded-3xl p-8 section-card fade-up"
+                    style="border: 1.5px solid rgba(0, 212, 255, 0.2);">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-cyber to-blue-600 rounded-2xl flex items-center justify-center glow">
+                            <i class="fas fa-file-signature text-2xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-cyber">Recommendation Letter #2</h3>
+                            <p class="text-gray-400 text-sm">Professional Reference</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Additional professional endorsement demonstrating skills, achievements, and contributions in
+                        engineering and data science projects.
+                    </p>
+                    <a href="Files/Recommendation letter 2.pdf" target="_blank"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber to-blue-600 rounded-full font-semibold text-white hover:scale-105 transition-transform glow">
+                        <i class="fas fa-file-pdf"></i> View Letter
+                        <i class="fas fa-external-link-alt text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Conferences -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Conferences & <span class="gradient-text">Events</span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="glass rounded-3xl p-8 section-card fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-cyber to-blue-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gold">ADIPEC 2022</h3>
+                            <p class="text-cyber">Abu Dhabi, UAE</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Abu Dhabi International Petroleum Exhibition & Conference - Premier global
+                        energy industry event</p>
+                    <span class="badge badge-cyber mt-4">November 2022</span>
+                </div>
+
+                <div class="glass rounded-3xl p-8 section-card fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-award text-2xl text-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gold">SPE MENA Student Contest</h3>
+                            <p class="text-cyber">Middle East & North Africa</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Regional petroleum engineering student paper competition representing Iraq
+                    </p>
+                    <span class="badge badge-gold mt-4">June-July 2022</span>
+                </div>
+
+                <div class="glass rounded-3xl p-8 section-card fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-2xl text-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gold">AGRC Summer Camp</h3>
+                            <p class="text-cyber">Petroleum Students Program</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">24-Hour Intensive Petroleum Engineering Program</p>
+                    <div class="flex items-center gap-2 mt-4">
+                        <span class="badge badge-green">Score: 80%</span>
+                        <span class="badge badge-cyber">2021</span>
+                    </div>
+                </div>
+
+                <div class="glass rounded-3xl p-8 section-card fade-up">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gold">Rumaila Safety Training</h3>
+                            <p class="text-cyber">ROO Company</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">Comprehensive safety foundation training program</p>
+                    <span class="badge badge-cyber mt-4">2022</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Field Exposure -->
+    <section class="py-16 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Field & <span class="gradient-text">Industrial
+                        Exposure</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="glass rounded-3xl p-8 section-card fade-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-20 h-20 bg-gradient-to-br from-cyber to-gold rounded-2xl flex items-center justify-center">
+                            <i class="fas fa-industry text-3xl text-dark"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gold">Summer Field Training</h3>
+                            <p class="text-cyber text-lg">Basrah Oil Company</p>
+                            <span class="badge badge-gold mt-2">One Month – 2021</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Direct exposure to production operations, safety systems, and surface facilities.
+                        Gained hands-on experience with real-world petroleum engineering practices and
+                        operational procedures in one of Iraq's major oil fields.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Demonstrated -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Skills <span class="gradient-text">Demonstrated</span>
+                </h2>
+                <p class="text-gray-400">Through projects & professional development</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto fade-up">
+                <span class="px-6 py-3 glass rounded-full hover:glow transition-all cursor-pointer">
+                    <i class="fas fa-microphone-alt text-gold mr-2"></i>Technical Presentation
+                </span>
+                <span class="px-6 py-3 glass rounded-full hover:glow transition-all cursor-pointer">
+                    <i class="fas fa-chart-bar text-cyber mr-2"></i>Data Analysis & Visualization
+                </span>
+                <span class="px-6 py-3 glass rounded-full hover:glow transition-all cursor-pointer">
+                    <i class="fas fa-robot text-gold mr-2"></i>Machine Learning in Oil & Gas
+                </span>
+                <span class="px-6 py-3 glass rounded-full hover:glow transition-all cursor-pointer">
+                    <i class="fas fa-desktop text-cyber mr-2"></i>Web-Based Engineering Dashboards
+                </span>
+                <span class="px-6 py-3 glass rounded-full hover:glow transition-all cursor-pointer">
+                    <i class="fas fa-shield-alt text-gold mr-2"></i>Safety Leadership & HSE
+                </span>
+                <span class="px-6 py-3 glass rounded-full hover:glow transition-all cursor-pointer">
+                    <i class="fas fa-pen text-cyber mr-2"></i>Research Writing & Publishing
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <a href="index.html"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyber to-blue-600 rounded-full font-semibold hover:scale-105 transition-transform glow mb-8 hover:text-dark">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <a href="index.html#contact"
+                class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold-600 rounded-full font-semibold hover:scale-105 transition-transform glow mb-8 hover:text-dark">
+                <i class="fas fa-arrow-left"></i> Contact Me
+            </a>
+            <p class="text-gray-500">&copy; 2025 Yaseen Riyadh Alameer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smart Navbar
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // Lightbox functions
+        function openLightbox(imageSrc, title) {
+            if (imageSrc && title) {
+                // Dynamic lightbox for any certificate
+                document.getElementById('dynamicLightboxImg').src = imageSrc;
+                document.getElementById('dynamicLightboxImg').alt = title;
+                document.getElementById('dynamicLightbox').classList.add('active');
+            } else {
+                // Default SPE certificate lightbox
+                document.getElementById('certificateLightbox').classList.add('active');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('certificateLightbox').classList.remove('active');
+            document.getElementById('dynamicLightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+    <!-- Certificate Lightbox Modal -->
+    <div id="certificateLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img src="assets/My Competition Certificate.png" alt="SPE MENA Competition Certificate - Yaseen Riyadh Bandar"
+            onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Dynamic Lightbox Modal (Aspen HYSYS etc.) -->
+    <div id="dynamicLightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="dynamicLightboxImg" src="" alt="" onclick="event.stopPropagation()">
+    </div>
+</body>
+
+</html>

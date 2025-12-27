@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library & Knowledge Hub | Yaseen Riyadh Bandar</title>
+    <meta name="description"
+        content="Essential resources and roadmap for Petroleum Engineers and Data Scientists - curated by Yaseen Riyadh Bandar">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        cyber: '#00d4ff',
+                        gold: '#ffd700',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .book-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .book-card:hover::before {
+            left: 100%;
+        }
+
+        .book-cover {
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .book-card:hover .book-cover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .step-badge {
+            background: linear-gradient(135deg, #00d4ff, #ffd700);
+            color: #050505;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 215, 0, 0.1));
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .review-quote {
+            border-left: 3px solid #ffd700;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .download-btn {
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #050505;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .preview-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #00d4ff;
+        }
+
+        /* Resource Modal Styles */
+        .resource-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .resource-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .resource-modal-content {
+            background: linear-gradient(135deg, #0a0a0a, #151515);
+            border-radius: 24px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .resource-modal.active .resource-modal-content {
+            transform: scale(1);
+        }
+
+        .resource-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .resource-modal-close:hover {
+            color: #ffd700;
+            transform: rotate(90deg);
+        }
+
+        .course-item {
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .course-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .abbrev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 8px;
+        }
+
+        .abbrev-item {
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body class="bg-darker text-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-2xl font-bold gradient-text">YRB</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="hover:text-cyber transition-colors">Home</a>
+                    <a href="index.html#about" class="hover:text-cyber transition-colors">About</a>
+                    <a href="index.html#experience" class="hover:text-cyber transition-colors">Experience</a>
+                    <a href="index.html#skills" class="hover:text-cyber transition-colors">Skills</a>
+                    <a href="index.html#projects" class="hover:text-cyber transition-colors">Projects</a>
+                    <a href="english.html" class="hover:text-cyber transition-colors">English Lab</a>
+                    <a href="#" class="text-gold"><i class="fas fa-book mr-1"></i>Library</a>
+                    <a href="index.html#contact" class="hover:text-cyber transition-colors">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden glass">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block py-2 hover:text-cyber">Home</a>
+                <a href="index.html#about" class="block py-2 hover:text-cyber">About</a>
+                <a href="index.html#experience" class="block py-2 hover:text-cyber">Experience</a>
+                <a href="index.html#skills" class="block py-2 hover:text-cyber">Skills</a>
+                <a href="index.html#projects" class="block py-2 hover:text-cyber">Projects</a>
+                <a href="english.html" class="block py-2 hover:text-cyber">English Lab</a>
+                <a href="#" class="block py-2 text-gold"><i class="fas fa-book mr-1"></i>Library</a>
+                <a href="index.html#contact" class="block py-2 hover:text-cyber">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 relative">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center fade-up">
+                <div
+                    class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-cyber to-gold rounded-2xl flex items-center justify-center">
+                    <i class="fas fa-book-open text-4xl text-dark"></i>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+                    Library & <span class="gradient-text">Knowledge Hub</span>
+                </h1>
+                <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-6">
+                    Your curated roadmap to mastering Petroleum Engineering & Data Science.
+                    These are the essential resources that shaped my expertise and will accelerate your journey.
+                </p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <span class="px-4 py-2 glass rounded-full text-sm flex items-center gap-2">
+                        <i class="fas fa-oil-well text-gold"></i> Petroleum Engineering
+                    </span>
+                    <span class="px-4 py-2 glass rounded-full text-sm flex items-center gap-2">
+                        <i class="fas fa-brain text-cyber"></i> Data Science & AI
+                    </span>
+                    <span class="px-4 py-2 glass rounded-full text-sm flex items-center gap-2">
+                        <i class="fas fa-code text-purple-400"></i> Web Development
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Resource: South Iraq Formations -->
+    <section class="py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass rounded-2xl p-6 fade-up"
+                style="border: 1px solid rgba(0, 212, 255, 0.3); background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 215, 0, 0.05));">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-cyber to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 glow">
+                        <i class="fas fa-map-marked-alt text-3xl text-white"></i>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
+                            <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full"><i
+                                    class="fas fa-star mr-1"></i> Featured Resource</span>
+                            <span class="px-3 py-1 bg-gold/20 text-gold text-xs rounded-full">Reference Guide</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gold mb-2">South Iraq Formations Information</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Comprehensive geological reference covering all major formations in South Iraq oil fields -
+                            formation characteristics, depths, lithology, and reservoir properties.
+                        </p>
+                    </div>
+                    <a href="Files/SOUTH IRAQ FORMATIONS INFORMATIONS.pdf" target="_blank"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyber to-blue-600 rounded-full font-semibold hover:scale-105 transition-transform glow whitespace-nowrap">
+                        <i class="fas fa-download"></i> Download Guide
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Resources Buttons -->
+    <section class="py-8">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6 fade-up">
+                <h3 class="text-xl font-bold mb-2">Quick <span class="gradient-text">Resources</span></h3>
+                <p class="text-gray-400 text-sm">Essential references for petroleum engineers</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 fade-up">
+                <!-- Petroleum Abbreviations Button -->
+                <button onclick="openResourceModal('abbreviations')"
+                    class="glass px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all border border-gold/30 hover:border-gold/60 flex items-center gap-2">
+                    <i class="fas fa-list-alt text-gold"></i>
+                    <span>Petroleum Abbreviations</span>
+                </button>
+
+                <!-- O&G Courses Button -->
+                <button onclick="openResourceModal('courses')"
+                    class="glass px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all border border-cyber/30 hover:border-cyber/60 flex items-center gap-2">
+                    <i class="fas fa-graduation-cap text-cyber"></i>
+                    <span>Essential O&G Courses</span>
+                </button>
+
+                <!-- Well Testing Button -->
+                <button onclick="openResourceModal('welltesting')"
+                    class="glass px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all border border-purple-400/30 hover:border-purple-400/60 flex items-center gap-2">
+                    <i class="fas fa-vial text-purple-400"></i>
+                    <span>Well Testing & Separator</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap 1: Reservoir Engineering -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-gold to-yellow-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-database text-2xl text-dark"></i>
+                    </div>
+                    <div>
+                        <span class="text-gold text-sm font-semibold">ROADMAP 1</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">The Reservoir Expert</h2>
+                        <p class="text-gray-400">Master reservoir engineering fundamentals and calculations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Book 1: Tarek Ahmed -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 1</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold text-xs rounded-full">Essential</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Reservoie Engineering Handbook.png" alt="Reservoir Engineering Handbook"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Reservoir Engineering Handbook</h3>
+                            <p class="text-cyber font-medium mb-2">by Tarek Ahmed</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The most comprehensive reference for reservoir calculations, fluid properties, and
+                                material balance equations.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "This is THE bible for reservoir
+                                    engineers. Every equation you'll ever need is in this book."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://epdf.pub/reservoir-engineering-handbook.html?utm_source=chatgpt.com"
+                                    target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://www.perlego.com/book/1836926/reservoir-engineering-handbook-pdf?utm_source=chatgpt.com"
+                                    target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2: Craft & Hawkins -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 2</span>
+                        <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Classical</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Applied Petroleum Reservoir Engineering.png"
+                                alt="Applied Petroleum Reservoir Engineering"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Applied Petroleum Reservoir Engineering</h3>
+                            <p class="text-cyber font-medium mb-2">by Craft & Hawkins</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The classic textbook focusing on practical applications and Material Balance
+                                calculations.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "The perfect companion to Tarek
+                                    Ahmed. Shows you how to apply theory in the field."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://en.pdfdrive.to/dl/applied-petroleum-reservoir-engineering-1?utm_source=chatgpt.com"
+                                    target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://archive.org/details/AppliedPetroleumReservoirEngineeringCraftHawkins"
+                                    target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3: Advanced Reservoir Engineering -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 3</span>
+                        <span class="px-3 py-1 bg-gold/20 text-gold text-xs rounded-full">Advanced</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/advanced reservoir book.jpg" alt="Advanced-reservoir-engineering-handbook"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Advanced Reservoir Engineering</h3>
+                            <p class="text-cyber font-medium mb-2">Advanced Topics & Methods</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                Comprehensive coverage of advanced reservoir engineering concepts including enhanced oil
+                                recovery, simulation, and modern analytical techniques.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Takes your reservoir knowledge to
+                                    the next level. Essential for anyone serious about reservoir management."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="Files/Advanced Reservoir Engineering.pdf" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://www.sciencedirect.com/book/monograph/9780750677332/advanced-reservoir-engineering"
+                                    target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap 2: Drilling Engineering -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-oil-well text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-red-400 text-sm font-semibold">ROADMAP 2</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">The Drilling Specialist</h2>
+                        <p class="text-gray-400">Master the art and science of drilling operations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <!-- Book: Bourgoyne -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Core</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">SPE Textbook</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Applied drilling engineering.jpeg" alt="Applied Drilling Engineering"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Applied Drilling Engineering</h3>
+                            <p class="text-cyber font-medium mb-2">by Bourgoyne et al. (SPE)</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The legendary SPE textbook known as the "Bible" of drilling engineers worldwide.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Every drilling engineer I know
+                                    has this book. From hydraulics to well control - it's all here."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://pdfcoffee.com/read-applied-drilling-engineering-pdf-free.html"
+                                    target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://pdfcoffee.com/read-applied-drilling-engineering-pdf-free.html"
+                                    target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap 3: Production Engineering -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-green-400 text-sm font-semibold">ROADMAP 3</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Production Engineering</h2>
+                        <p class="text-gray-400">Master nodal analysis and production optimization</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Book 1: Boyun Guo -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 1</span>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Essential</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Production Engineering.webp" alt="Petroleum Production Engineering"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Petroleum Production Engineering</h3>
+                            <p class="text-cyber font-medium mb-2">by Boyun Guo</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                Comprehensive coverage from Nodal Analysis to Artificial Lift systems.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "This book made production
+                                    engineering click for me. Exceptional nodal analysis approach."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://www.perlego.com/book/1833505/petroleum-production-engineering-pdf"
+                                    target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2: Production Engineering PDF -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 2</span>
+                        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full">Advanced</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Production Engineering book2.png" alt="Petroleum Production Engineering"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Production Engineering</h3>
+                            <p class="text-cyber font-medium mb-2">Production Systems & Optimization</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                Comprehensive coverage of production systems, artificial lift, and optimization
+                                techniques.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Essential for understanding well
+                                    production systems."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="Files/Production Engineering book.pdf" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap 4: Well Logging -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up" style="border-color: rgba(168,85,247,0.3);">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-chart-bar text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-purple-400 text-sm font-semibold">ROADMAP 4</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Well Logging & Petrophysics</h2>
+                        <p class="text-gray-400">Master log interpretation and formation evaluation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <!-- Book: George Asquith -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Core</span>
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Well
+                            Logging</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Basic Well Log Analysis.png" alt="Basic Well Log Analysis"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Basic Well Log Analysis</h3>
+                            <p class="text-cyber font-medium mb-2">by George Asquith</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The best starting point for understanding log interpretation and formation properties.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "If you're new to well logging,
+                                    start here. Asquith explains complex concepts clearly."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://www.scribd.com/document/376910790/Basic-Well-Log-Analysis-2nd-Edition-G-Asquith-D-Krygowski-2004"
+                                    target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://www.scribd.com/document/376910790/Basic-Well-Log-Analysis-2nd-Edition-G-Asquith-D-Krygowski-2004"
+                                    target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-eye"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap 5: Reservoir Simulation -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up" style="border-color: rgba(255,100,100,0.3);">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-cube text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-red-400 text-sm font-semibold">ROADMAP 5</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Reservoir Simulation</h2>
+                        <p class="text-gray-400">Master numerical reservoir modeling and simulation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Book: Reservoir Simulation -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 1</span>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-400 text-xs rounded-full">Core</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Petroleum Reservoir Simulation cover photo.png" alt="Reservoir Simulation"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Reservoir Simulation</h3>
+                            <p class="text-cyber font-medium mb-2">Numerical Modeling Fundamentals</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                Comprehensive guide to reservoir simulation concepts and numerical methods.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Foundation for understanding
+                                    simulation software and building models."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="Files/Reservoir Simulation book.pdf" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book: Basic Applied Reservoir Simulation -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 2</span>
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 text-xs rounded-full">Applied</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="assets/Basic Applied Reservoir Simulation cover photo.png"
+                                alt="Basic Applied Reservoir Simulation"
+                                class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Basic Applied Reservoir Simulation</h3>
+                            <p class="text-cyber font-medium mb-2">Practical Applications</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                Hands-on approach to building and running reservoir simulation models.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Perfect for learning practical
+                                    simulation workflows."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="Files/Basic Applied Reservoir Simulation.pdf" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Roadmap 6: AI & Data Science -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up" style="border-color: rgba(0,212,255,0.3);">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-cyber to-blue-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-brain text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-cyber text-sm font-semibold">ROADMAP 6</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">AI & Data Science</h2>
+                        <p class="text-gray-400">The future of engineering - machine learning and data analysis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Book: Hands-on ML -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 1</span>
+                        <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Machine Learning</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="https://m.media-amazon.com/images/I/51aqYc1QyrL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg"
+                                alt="Hands-On Machine Learning" class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Hands-On Machine Learning</h3>
+                            <p class="text-cyber font-medium mb-2">by Aurélien Géron</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The most famous book for learning Scikit-Learn, TensorFlow, and practical AI
+                                applications.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "This book transformed my approach
+                                    to engineering. ML + petroleum = endless possibilities."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://github.com/ageron/handson-ml3" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://github.com/ageron/handson-ml3" target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fab fa-github"></i> GitHub Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book: Python for Data Analysis -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 2</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">Python</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <img src="https://m.media-amazon.com/images/I/51cUNf8zukL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg"
+                                alt="Python for Data Analysis" class="book-cover w-32 h-44 object-cover rounded-lg">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Python for Data Analysis</h3>
+                            <p class="text-cyber font-medium mb-2">by Wes McKinney</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The definitive guide for data analysis with Python, Pandas, and NumPy.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Written by the creator of Pandas
+                                    himself. Master this, handle any dataset."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://wesmckinney.com/book/" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-download"></i> Download
+                                </a>
+                                <a href="https://wesmckinney.com/book/" target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-globe"></i> Read Online
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Roadmap 7: Web Development -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="category-header rounded-2xl p-6 mb-12 fade-up" style="border-color: rgba(168,85,247,0.3);">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+                        <i class="fas fa-code text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <span class="text-purple-400 text-sm font-semibold">ROADMAP 7</span>
+                        <h2 class="text-2xl md:text-3xl font-bold">Web Development</h2>
+                        <p class="text-gray-400">Modern frontend development with cutting-edge technologies</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Tailwind CSS -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 1</span>
+                        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full">CSS Framework</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-32 h-44 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-css3-alt text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">Tailwind CSS Documentation</h3>
+                            <p class="text-cyber font-medium mb-2">Official Docs</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                A utility-first CSS framework for rapidly building modern user interfaces.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Game changer for frontend
+                                    development. Build beautiful UIs without leaving your HTML."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://tailwindcss.com/docs" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-book"></i> Learn
+                                </a>
+                                <a href="https://tailwindcss.com" target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-globe"></i> Website
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JavaScript Tutorial -->
+                <div class="book-card glass rounded-3xl p-6 fade-up">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="step-badge px-4 py-1 rounded-full text-sm">Step 2</span>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">JavaScript</span>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="w-32 h-44 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
+                                <i class="fab fa-js-square text-5xl text-dark"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gold mb-1">The Modern JavaScript Tutorial</h3>
+                            <p class="text-cyber font-medium mb-2">JavaScript.info</p>
+                            <p class="text-gray-400 text-sm mb-3">
+                                The most comprehensive and up-to-date JavaScript tutorial on the web.
+                            </p>
+                            <div class="review-quote p-3 rounded-r-lg mb-4">
+                                <p class="text-gray-300 text-sm italic">
+                                    <strong class="text-gold">Yaseen's Take:</strong> "Best free JS tutorial.
+                                    Interactive examples make learning enjoyable and effective."
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <a href="https://javascript.info" target="_blank"
+                                    class="download-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                    <i class="fas fa-book"></i> Learn
+                                </a>
+                                <a href="https://www.scribd.com/document/489127514/Javascript-info-Full-Tutorial-Ebook-pdf"
+                                    target="_blank"
+                                    class="preview-btn px-4 py-2 glass rounded-full text-sm flex items-center gap-2 hover:text-cyber transition-all">
+                                    <i class="fas fa-download"></i> PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-dark/50">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="glass rounded-3xl p-8 md:p-12 fade-up glow border-dark/30 hover:border-cyber/50 transition-all">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Want to <span class="gradient-text">Discuss</span> These Resources?
+                </h2>
+                <p class="text-gray-400 mb-8">
+                    I'm always happy to help fellow engineers and data scientists on their learning journey.
+                    Feel free to reach out for recommendations or study tips!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#contact"
+                        class="px-8 py-4 bg-gradient-to-r from-cyber to-blue-600 rounded-full font-semibold hover:scale-105 transition-transform flex items-center justify-center gap-2 hover:text-black">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="index.html"
+                        class="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                        <i class="fas fa-home"></i> Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500">&copy; 2025 Yaseen Riyadh Alameer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smart Navbar - hide on scroll down
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+            lastScrollY = currentScrollY;
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Resource Modal Functions
+        function openResourceModal(type) {
+            document.getElementById(type + 'Modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeResourceModal(type) {
+            document.getElementById(type + 'Modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ['abbreviations', 'courses', 'welltesting'].forEach(t => closeResourceModal(t));
+            }
+        });
+    </script>
+
+    <!-- Petroleum Abbreviations Modal -->
+    <div id="abbreviationsModal" class="resource-modal" onclick="closeResourceModal('abbreviations')">
+        <div class="resource-modal-content p-6" onclick="event.stopPropagation()">
+            <span class="resource-modal-close" onclick="closeResourceModal('abbreviations')">&times;</span>
+            <div class="flex items-center gap-3 mb-6">
+                <div
+                    class="w-12 h-12 bg-gradient-to-br from-gold to-yellow-600 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-list-alt text-xl text-dark"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Petroleum Abbreviations</h2>
+                    <p class="text-gray-400 text-sm">Essential O&G industry abbreviations</p>
+                </div>
+            </div>
+            <div class="abbrev-grid">
+                <div class="abbrev-item"><span class="text-gold font-semibold">API</span> - American Petroleum Institute
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">BHA</span> - Bottom Hole Assembly</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">BHP</span> - Bottom Hole Pressure</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">BHT</span> - Bottom Hole Temperature
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">BOP</span> - Blow Out Preventer</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">BPD</span> - Barrel Per Day</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">BPM</span> - Barrels Per Minute</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">CBL</span> - Cement Bond Log</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">DC</span> - Drill Collar</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">DLS</span> - Dog Leg Severity</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">DP</span> - Drill Pipe</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">DST</span> - Drill Stem Test</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">ECD</span> - Equivalent Circulation
+                    Density</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">ESP</span> - Electrical Submersible Pump
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">GOC</span> - Gas Oil Contact</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">GOR</span> - Gas Oil Ratio</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">IPR</span> - Inflow Performance
+                    Relationship</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">KOP</span> - Kick Off Point</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">LCM</span> - Lost Circulation Materials
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">LOT</span> - Leak Off Test</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">LWD</span> - Log While Drilling</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">MD</span> - Measured Depth</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">MW</span> - Mud Weight</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">MWD</span> - Measurement While Drilling
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">OBM</span> - Oil Base Mud</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">OWC</span> - Oil Water Contact</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">PDC</span> - Polycrystalline Diamond
+                    Cutter</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">PI</span> - Productivity Index</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">PVT</span> - Pressure Volume Temperature
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">ROP</span> - Rate Of Penetration</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">ROV</span> - Remote Operated Vehicle
+                </div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">RPM</span> - Revolutions Per Minute</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">TVD</span> - True Vertical Depth</div>
+                <div class="abbrev-item"><span class="text-gold font-semibold">WOB</span> - Weight On Bit</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Essential O&G Courses Modal -->
+    <div id="coursesModal" class="resource-modal" onclick="closeResourceModal('courses')">
+        <div class="resource-modal-content p-6" onclick="event.stopPropagation()">
+            <span class="resource-modal-close" onclick="closeResourceModal('courses')">&times;</span>
+            <div class="flex items-center gap-3 mb-6">
+                <div
+                    class="w-12 h-12 bg-gradient-to-br from-cyber to-blue-600 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-graduation-cap text-xl text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-cyber">Essential O&G Courses</h2>
+                    <p class="text-gray-400 text-sm">Recommended courses for petroleum engineers</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-cog mr-2"></i>Core Technical Courses</h3>
+            <div class="space-y-2 mb-6">
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Reservoir Engineering</span><br><span
+                            class="text-gray-400 text-sm">Understanding reservoir properties</span></div>
+                    <a href="https://youtube.com/playlist?list=PL4kCxFVdSSQSJnpRuGoJnmF8wib3LsGRI" target="_blank"
+                        class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm hover:bg-cyber/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Drilling Engineering</span><br><span
+                            class="text-gray-400 text-sm">Drilling equipment and techniques</span></div>
+                    <a href="https://youtube.com/playlist?list=PLdWISnnIF0K22rGUI2iU7otFSAlBvLAva" target="_blank"
+                        class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm hover:bg-cyber/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Production Engineering</span><br><span
+                            class="text-gray-400 text-sm">Production methods and solutions</span></div>
+                    <a href="https://youtube.com/playlist?list=PLWd9wtbQ-HRbwMsZNPGPRI0RbtE-aEbmy" target="_blank"
+                        class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm hover:bg-cyber/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Well Logging</span><br><span
+                            class="text-gray-400 text-sm">Log interpretation and analysis</span></div>
+                    <a href="https://youtube.com/playlist?list=PLk99RYtyU_zYg9nLrxHqgfOdAgkrfpAu9" target="_blank"
+                        class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm hover:bg-cyber/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">EOR Techniques</span><br><span
+                            class="text-gray-400 text-sm">Enhanced Oil Recovery methods</span></div>
+                    <a href="https://youtube.com/playlist?list=PL-y03ztiX8LmNtJIfVxXYZd0cxG61KqTC" target="_blank"
+                        class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm hover:bg-cyber/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-laptop-code mr-2"></i>Software Courses
+            </h3>
+            <div class="space-y-2 mb-6">
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Petrel – Eclipse – CMG</span><br><span
+                            class="text-gray-400 text-sm">Reservoir modeling & simulation</span></div>
+                    <a href="https://youtube.com/playlist?list=PLHLqEiyb9_OHpOQO-UijL0R5SsgRHF5ge" target="_blank"
+                        class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm hover:bg-gold/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">PIPESIM – PROSPER – MBAL</span><br><span
+                            class="text-gray-400 text-sm">Flow & production analysis</span></div>
+                    <a href="https://t.me/asteven23/1547" target="_blank"
+                        class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm hover:bg-gold/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">HYSYS</span><br><span
+                            class="text-gray-400 text-sm">Surface processing simulation</span></div>
+                    <a href="https://t.me/asteven23/1027" target="_blank"
+                        class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm hover:bg-gold/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-hard-hat mr-2"></i>HSE Courses</h3>
+            <div class="space-y-2">
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">OSHA 10/30</span><br><span
+                            class="text-gray-400 text-sm">US Safety Standards</span></div>
+                    <a href="https://t.me/asteven23/1446" target="_blank"
+                        class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm hover:bg-green-500/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">H2S Awareness</span><br><span
+                            class="text-gray-400 text-sm">Essential for sour gas sites</span></div>
+                    <a href="https://t.me/asteven23/1670" target="_blank"
+                        class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm hover:bg-green-500/40"><i
+                            class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Well Testing Modal -->
+    <div id="welltestingModal" class="resource-modal" onclick="closeResourceModal('welltesting')">
+        <div class="resource-modal-content p-6" onclick="event.stopPropagation()">
+            <span class="resource-modal-close" onclick="closeResourceModal('welltesting')">&times;</span>
+            <div class="flex items-center gap-3 mb-6">
+                <div
+                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-vial text-xl text-white"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-purple-400">Well Testing & Separator</h2>
+                    <p class="text-gray-400 text-sm">Essential videos for engineers</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Overview</span><br><span
+                            class="text-gray-400 text-sm">General separator overview</span></div>
+                    <a href="https://youtu.be/zgzpXJFMY00" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Separator Types</span><br><span
+                            class="text-gray-400 text-sm">Detailed separator explanation</span></div>
+                    <a href="https://youtu.be/rc_N-U7IDKY" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Color Coding</span><br><span
+                            class="text-gray-400 text-sm">Pipeline color codes at sites</span></div>
+                    <a href="https://youtu.be/aRvPQCktXIo" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Strainer</span><br><span
+                            class="text-gray-400 text-sm">What is a strainer & how it works</span></div>
+                    <a href="https://youtu.be/3AddhTvZEmg" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Flanges</span><br><span
+                            class="text-gray-400 text-sm">Flange types and usage</span></div>
+                    <a href="https://youtu.be/gk2Arp6jKc8" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Safety Devices</span><br><span
+                            class="text-gray-400 text-sm">Separator safety equipment</span></div>
+                    <a href="https://youtu.be/Babfxk0gDjs" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+                <div class="course-item flex justify-between items-center">
+                    <div><span class="font-semibold text-white">Gas Calculation</span><br><span
+                            class="text-gray-400 text-sm">Manual separator gas calculation</span></div>
+                    <a href="https://youtu.be/ziA-WDeFs0E" target="_blank"
+                        class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm hover:bg-purple-500/40"><i
+                            class="fas fa-play"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaseen Riyadh Bandar | Portfolio</title>
+    <meta name="description"
+        content="Professional portfolio of Yaseen Riyadh Bandar - Oil & Gas Engineer, Creative Designer, Web Developer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        darker: '#050505',
+                        cyber: '#00d4ff',
+                        gold: '#ffd700',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glow {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .glow-gold {
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-icon {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .skill-icon:hover {
+            transform: translateY(-10px) scale(1);
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .nav-scrolled {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Experience cards enhanced blur */
+        .exp-card {
+            backdrop-filter: blur(30px);
+
+        }
+
+        .exp-card:hover {
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+
+        .exp-card {
+            transition: all 0.3s ease;
+        }
+
+        .exp-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        /* Facebook brand color on hover */
+        .social-facebook:hover {
+            background: linear-gradient(135deg, #1877f2, #3b5998) !important;
+            box-shadow: 0 0 30px rgba(24, 119, 242, 0.6);
+            border-color: #1877f2;
+        }
+
+        /* Footer hover effect */
+        .footer-text {
+            transition: color 0.3s ease;
+        }
+
+        .footer-text:hover {
+            color: #ffffff;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .category-badge {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(255, 215, 0, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .cv-btn {
+            transition: all 0.3s ease;
+        }
+
+
+
+        .profile-img {
+            border: 3px solid transparent;
+            background: linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(135deg, #00d4ff, #ffd700) border-box;
+        }
+
+        .research-card {
+            transition: all 0.4s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Skill icon golden glow animation */
+        .skill-icon:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        /* About section cards animation */
+        .about-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px) scale(1);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .about-card:hover i {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        }
+
+        .about-card i {
+            transition: all 0.4s ease;
+        }
+
+        /* Social media brand colors on hover */
+        .social-linkedin:hover {
+            background: linear-gradient(135deg, #0077b5, #00a0dc) !important;
+            box-shadow: 0 0 30px rgba(0, 119, 181, 0.6);
+            border-color: #0077b5;
+        }
+
+        .social-instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+            box-shadow: 0 0 30px rgba(225, 48, 108, 0.6);
+            border-color: #e6683c;
+        }
+
+        .social-github:hover {
+            background: linear-gradient(135deg, #333, #6e5494) !important;
+            box-shadow: 0 0 30px rgba(110, 84, 148, 0.6);
+            border-color: #6e5494;
+        }
+
+        .social-researchgate:hover {
+            background: linear-gradient(135deg, #00d0af, #00ccaa) !important;
+            box-shadow: 0 0 30px rgba(0, 208, 175, 0.6);
+            border-color: #00d0af;
+        }
+
+        /* Contact card golden hover */
+        .contact-card {
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .contact-card:hover i {
+            color: #ffd700 !important;
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+        }
+
+        .contact-card:hover h3 {
+            color: #ffd700;
+        }
+
+        /* Slide-in Animation for Name */
+        .animate-slide-in {
+            animation: slideInName 2.5s ease-out forwards;
+        }
+
+        @keyframes slideInName {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Software Modal Styles */
+        .software-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .software-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .software-modal-content {
+            background: linear-gradient(135deg, #0a0a0a, #151515);
+            border-radius: 24px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .software-modal.active .software-modal-content {
+            transform: scale(1);
+        }
+
+        .software-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .software-modal-close:hover {
+            color: #ffd700;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white overflow-x-hidden">
+    <!-- Navigation - Smart Hide/Show -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-2xl font-bold gradient-text">YRB</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-cyber transition-colors">Home</a>
+                    <a href="#about" class="hover:text-cyber transition-colors">About</a>
+                    <a href="#experience" class="hover:text-cyber transition-colors">Experience</a>
+                    <a href="#skills" class="hover:text-cyber transition-colors">Skills</a>
+                    <a href="#research" class="hover:text-cyber transition-colors">Research</a>
+                    <a href="#projects" class="hover:text-cyber transition-colors">Projects</a>
+                    <a href="english.html" class="hover:text-cyber transition-colors">English Lab</a>
+                    <a href="library.html" class="hover:text-gold transition-colors"><i
+                            class="fas fa-book mr-1"></i>Library</a>
+                    <a href="#contact" class="hover:text-cyber transition-colors">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden glass">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#home" class="block py-2 hover:text-cyber">Home</a>
+                <a href="#about" class="block py-2 hover:text-cyber">About</a>
+                <a href="#experience" class="block py-2 hover:text-cyber">Experience</a>
+                <a href="#skills" class="block py-2 hover:text-cyber">Skills</a>
+                <a href="#research" class="block py-2 hover:text-cyber">Research</a>
+                <a href="#projects" class="block py-2 hover:text-cyber">Projects</a>
+                <a href="english.html" class="block py-2 hover:text-cyber">English Lab</a>
+                <a href="library.html" class="block py-2 hover:text-gold"><i class="fas fa-book mr-1"></i>Library</a>
+                <a href="#contact" class="block py-2 hover:text-cyber">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative pt-24">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyber/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="mb-8 float-anim">
+                    <!-- Profile Image -->
+                    <div class="w-44 h-44 mx-auto rounded-full profile-img p-1 glow">
+                        <img src="assets/Myphoto.jpg" alt="Yaseen Riyadh Bandar"
+                            class="w-full h-full rounded-full object-cover object-top">
+                    </div>
+                </div>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 animate-slide-in">
+                    <span class="gradient-text">Yaseen Riyadh Alameer</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-400 mb-2">
+                    Oil & Gas Engineer | Creative Designer | Web Developer
+                </p>
+                <p class="text-gray-500 mb-4 flex items-center justify-center gap-2">
+                    <i class="fas fa-map-marker-alt text-cyber"></i>
+                    Iraq - Basrah - Abu Al-Khaseeb
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                  
+
+
+
+                    <a href="#contact"
+                        class="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-all border border-cyber/50 flex items-center justify-center gap-2 hover:text-cyber">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                    <a href="Files/Certificates.pdf" target="_blank"
+                        class="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-all border border-gold/50 flex items-center justify-center gap-2 hover:text-gold">
+                        <i class="fas fa-certificate"></i> My Certificates
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass rounded-3xl p-8 fade-up hover:border-cyber/30 transition-all">
+                    <h3 class="text-2xl font-bold mb-4 text-cyber">Who I Am</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        I'm a passionate professional from Basrah, Iraq, with a unique blend of expertise spanning Oil &
+                        Gas Engineering, Data Science, and Creative Design. My journey combines technical precision with
+                        creative innovation.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        With hands-on experience in petroleum engineering software and a deep understanding of data
+                        analytics, I bridge the gap between traditional engineering and modern AI-driven solutions. I
+                        also bring creative projects to life through professional video editing and graphic design.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 fade-up">
+                    <div class="about-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <i class="fas fa-oil-well text-4xl text-cyber mb-4"></i>
+                        <h4 class="font-semibold">Oil & Gas</h4>
+                        <p class="text-sm text-gray-400">Engineering Excellence</p>
+                    </div>
+                    <div class="about-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <i class="fas fa-chart-line text-4xl text-gold mb-4"></i>
+                        <h4 class="font-semibold">Data Science</h4>
+                        <p class="text-sm text-gray-400">AI & Analytics</p>
+                    </div>
+                    <div class="about-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <i class="fas fa-palette text-4xl text-cyber mb-4"></i>
+                        <h4 class="font-semibold">Creative Design</h4>
+                        <p class="text-sm text-gray-400">Visual Storytelling</p>
+                    </div>
+                    <div class="about-card glass rounded-2xl p-6 text-center cursor-pointer">
+                        <i class="fas fa-code text-4xl text-gold mb-4"></i>
+                        <h4 class="font-semibold">Web Development</h4>
+                        <p class="text-sm text-gray-400">Modern Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold mb-4">Professional <span class="gradient-text">Experience</span></h2>
+                <p class="text-gray-400">My journey in the Oil & Gas industry</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Timeline -->
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div
+                        class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyber via-gold to-cyber">
+                    </div>
+
+                    <!-- Experience 1 - Current -->
+                    <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
+                        <div class="md:w-1/2 md:pr-12 mb-4 md:mb-0">
+                            <div class="exp-card glass rounded-2xl p-6 hover:glow transition-all">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span
+                                        class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Current</span>
+                                    <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">2024 -
+                                        Present</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gold mb-1">Field Production Operator</h3>
+                                <p class="text-cyber font-medium mb-3">Anton Oil Company | Majnoon Oil Field, Basrah</p>
+                                <ul class="text-gray-300 text-sm space-y-1 text-left">
+                                    <li>• Operating production facilities (separators, pumps, compressors, etc.).</li>
+                                    <li>• Coordinating with Control Room & raising SAP notifications.</li>
+                                    <li>• Following HSE standards & SOPs in all operations.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-dark glow-gold">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
+                        <div class="md:w-1/2 md:pr-12"></div>
+                        <div
+                            class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber rounded-full border-4 border-dark glow">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="exp-card glass rounded-2xl p-6 hover:glow transition-all">
+                                <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">2023</span>
+                                <h3 class="text-xl font-bold text-gold mt-2 mb-1">Assistant Production Engineer</h3>
+                                <p class="text-cyber font-medium mb-3">Anton Oil Company | Majnoon Oil Field, Basrah</p>
+                                <ul class="text-gray-300 text-sm space-y-1">
+                                    <li>• Daily production monitoring & well performance analysis.</li>
+                                    <li>• Optimizing field operations & reducing downtime.</li>
+                                    <li>• Well testing, data interpretation & technical reports.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3 -->
+                    <div class="relative flex flex-col md:flex-row items-start fade-up">
+                        <div class="md:w-1/2 md:pr-12">
+                            <div class="exp-card glass rounded-2xl p-6 hover:glow-gold transition-all">
+                                <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Jul - Dec
+                                    2022</span>
+                                <h3 class="text-xl font-bold text-gold mt-2 mb-1">Production Solutions Engineer Trainee
+                                </h3>
+                                <p class="text-cyber font-medium mb-3">Halliburton Company | Basrah</p>
+                                <ul class="text-gray-300 text-sm space-y-1 text-left">
+                                    <li>• Coiled tubing (CT) workover operations</li>
+                                    <li>• Acidizing jobs, fishing, milling & cleanout operations.</li>
+                                    <li>• Nitrogen lifting & CT drilling applications.</li>
+                                    <li>• Well intervention techniques & field communication.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-dark glow-gold">
+                        </div>
+                        <div class="md:w-1/2 md:pl-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold mb-4">Professional <span class="gradient-text">Skills</span></h2>
+                <p class="text-gray-400 text-lg">Having wide skillset, I can contribute to different domains</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+
+            <!-- Category 1: Data Science -->
+            <div class="mb-16 fade-up">
+                <div class="flex justify-center mb-8">
+                    <span class="category-badge px-6 py-3 rounded-full text-lg font-semibold text-cyber">
+                        <i class="fas fa-brain mr-2"></i>Data Science & Analysis
+                    </span>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-6">
+
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('microsoft')">
+                        <img src="assets/Microsoft-Logo-PNG-Images-HD.png" alt="Microsoft-Logo-PNG-Images-HD"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Microsoft Programs</p>
+                    </div>
+
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('python')">
+                        <img src="assets/python.svg" alt="Python" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Python</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('matlab')">
+                        <img src="assets/Matlab.png" alt="Matlab" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">MATLAB</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('powerbi')">
+                        <img src="assets/power bi.svg" alt="Power BI logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Power BI</p>
+                    </div>
+
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('sql')">
+                        <img src="assets/sql.svg" alt="SQL logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">SQL</p>
+                    </div>
+
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('spotfire')">
+                        <img src="assets/spotfire.svg" alt="Spotfire logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Spotfire</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('primavera')">
+                        <img src="assets/logo-primavera-p6.png" alt="Primavera logo"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Primavera P6</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('sap')">
+                        <img src="assets/SAP-Logo.png" alt="SAP logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">SAP</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('ml')">
+                        <img src="assets/machine learning.svg" alt="Machine Learning logo"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Machine Learning</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('dl')">
+                        <img src="assets/deep learning.svg" alt="Deep learning neural network icon"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Deep Learning</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('timeseries')">
+                        <img src="assets/time series analysis.svg" alt="Time Series Analysis"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Time Series Analysis</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('anomaly')">
+                        <img src="assets/anomaly detection.svg" alt="Anomaly Detection"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Anomaly Detection</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('llm')">
+                        <img src="assets/llm & ai agents.svg" alt="LLM & AI Agents"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">LLM & AI Agents</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Petroleum Engineering -->
+            <div class="mb-16 fade-up">
+                <div class="flex justify-center mb-8">
+                    <span class="category-badge px-6 py-3 rounded-full text-lg font-semibold text-gold border-gold/30">
+                        <i class="fas fa-oil-well mr-2"></i>Petroleum Engineering
+                    </span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('techlog')">
+                        <img src="assets/techlog.png" alt="Techlog" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Techlog</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('petrel')">
+                        <img src="assets/petrel.png" alt="Petrel" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Petrel</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('cmg')">
+                        <img src="assets/cmg.png" alt="CMG" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">CMG</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('landmark')">
+                        <img src="assets/landmark drilling.png" alt="Landmark drilling logo"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Landmark Drilling</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('ipsoftware')">
+                        <img src="assets/IP.jpg" alt="IP logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">IP</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('didger')">
+                        <img src="assets/Didger.jpg" alt="Didger logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Didger</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('surfer')">
+                        <img src="assets/Surfer.png" alt="Surfer logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Surfer</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('autocad')">
+                        <img src="assets/Autocad.png" alt="Autocad logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">AutoCAD</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('nexus')">
+                        <img src="assets/nexus_software_system_logo.jfif" alt="Nexus"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Nexus Software</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('aspenhysys')">
+                        <img src="assets/Aspen Logo.png" alt="Aspen HYSYS logo"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Aspen HYSYS</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('prosper')">
+                        <img src="assets/Petex.png" alt="Petex Programs logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Prosper</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('gap')">
+                        <img src="assets/Petex.png" alt="Petex Programs logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">GAP</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow-gold cursor-pointer"
+                        onclick="openSoftwareModal('mbal')">
+                        <img src="assets/Petex.png" alt="Petex Programs logo" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">MBAL</p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Category 3: Web Development -->
+            <div class="mb-16 fade-up">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="category-badge px-6 py-3 rounded-full text-lg font-semibold text-emerald-400 border-emerald-400/30">
+                        <i class="fas fa-code mr-2"></i>Web Development
+                    </span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('html5')">
+                        <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
+                        <p class="text-xs">HTML5</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('css3')">
+                        <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i>
+                        <p class="text-xs">CSS3</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('javascript')">
+                        <i class="fab fa-js-square text-3xl text-yellow-400 mb-2"></i>
+                        <p class="text-xs">JavaScript</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4: Creative Design -->
+            <div class="fade-up">
+                <div class="flex justify-center mb-8">
+                    <span
+                        class="category-badge px-6 py-3 rounded-full text-lg font-semibold text-purple-400 border-purple-400/30">
+                        <i class="fas fa-palette mr-2"></i>Creative Design & Video
+                    </span>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('capcut')">
+                        <img src="assets/Capcut-Logo-PNG.png" alt="Capcut-Logo"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">CapCut</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('premiere')">
+                        <img src="assets/adobe-premiere-pro-icon-free-png.webp" alt="adobe-premiere-pro-logo-0"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Premiere Pro</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('aftereffects')">
+                        <img src="assets/adobe-after-effect-logo-square-rounded-adobe-after-effect-logo-adobe-after-effect-logo-free-download-free-png.webp"
+                            alt="adobe-after-effects" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">After Effects</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('photoshop')">
+                        <img src="assets/adobe-photoshop-logo.png" alt="adobe-photoshop-logo"
+                            class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Photoshop</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('illustrator')">
+                        <img src="assets/illustrator.jfif" alt="illustrator" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Illustrator</p>
+                    </div>
+                    <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
+                        onclick="openSoftwareModal('canva')">
+                        <img src="assets/canva.png" alt="canva" class="w-10 h-10 mx-auto mb-2 rounded-lg">
+                        <p class="text-xs">Canva</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold mb-4">Published <span class="gradient-text">Research</span></h2>
+                <p class="text-gray-400">Academic contributions and publications</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <a href="https://www.allmultidisciplinaryjournal.com/uploads/archives/20251129125208_692a9f2076ca7.pdf"
+                    target="_blank" class="research-card glass rounded-3xl p-8 block hover:glow fade-up group">
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div
+                            class="w-full md:w-48 h-32 bg-gradient-to-br from-cyber/20 to-gold/20 rounded-2xl flex items-center justify-center group-hover:from-cyber/30 group-hover:to-gold/30 transition-all">
+                            <i class="fas fa-file-pdf text-5xl text-red-500"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-3 py-1 bg-gold/20 text-gold text-xs rounded-full">Graduation
+                                    Project</span>
+                                <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-cyber transition-colors">Oil & Gas
+                                Engineering Research</h3>
+                            <p class="text-gray-400 text-sm mb-4">
+                                Published graduation research project in the All Multidisciplinary Journal. This
+                                research explores advanced methodologies and applications in Oil & Gas engineering,
+                                contributing to the field's academic knowledge base.
+                            </p>
+                            <div class="flex items-center gap-2 text-cyber">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span class="text-sm group-hover:text-gold transition-colors">Click to view & download
+                                    PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-darker/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold mb-4">Projects & <span class="gradient-text">Work</span></h2>
+                <p class="text-gray-400">Featured work and engineering projects</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="projects.html"
+                    class="glass rounded-3xl overflow-hidden hover:glow-gold transition-all fade-up group cursor-pointer">
+                    <div
+                        class="h-48 bg-gradient-to-br from-cyber/20 to-gold/20 flex items-center justify-center group-hover:from-cyber/30 group-hover:to-gold/30 transition-all">
+                        <i class="fas fa-oil-well text-5xl text-gold group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-green-400 transition-colors">Engineering
+                            Projects
+                            & Events</h3>
+                        <p class="text-gray-400 text-sm">Research, certifications, awards & professional development</p>
+                        <span
+                            class="inline-flex items-center gap-1 text-green-400 text-sm mt-3 group-hover:text-gold transition-colors">
+                            View Portfolio <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+                <a href="webdev.html"
+                    class="glass rounded-3xl overflow-hidden hover:glow transition-all fade-up group cursor-pointer">
+                    <div
+                        class="h-48 bg-gradient-to-br from-cyber/20 to-blue-500/20 flex items-center justify-center relative overflow-hidden">
+                        <i class="fas fa-code text-6xl text-cyber/50 group-hover:text-cyber transition-colors"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-cyber transition-colors">Web Development</h3>
+                        <p class="text-gray-400 text-sm">Commercial Apps, E-Commerce & Engineering Solutions</p>
+                        <span
+                            class="inline-flex items-center gap-1 text-cyber text-sm mt-3 group-hover:text-gold transition-colors">
+                            View Projects <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+                <a href="creative.html"
+                    class="glass rounded-3xl overflow-hidden hover:glow transition-all fade-up group cursor-pointer">
+                    <div
+                        class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center relative overflow-hidden">
+                        <i
+                            class="fas fa-palette text-6xl text-purple-500/50 group-hover:text-purple-400 transition-colors"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">Creative &
+                            Analytics</h3>
+                        <p class="text-gray-400 text-sm">Power BI, Spotfire, Adobe Suite & Motion Graphics</p>
+                        <span
+                            class="inline-flex items-center gap-1 text-purple-400 text-sm mt-3 group-hover:text-gold transition-colors">
+                            Explore Gallery <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="text-gray-400">Let's work together</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <a href="mailto:yassin.riyadh.bandar@gmail.com"
+                    class="contact-card glass rounded-2xl p-8 text-center fade-up cursor-pointer">
+                    <i class="fas fa-envelope text-4xl text-cyber mb-4 transition-all"></i>
+                    <h3 class="font-semibold mb-2 transition-colors">Email</h3>
+                    <p class="text-gray-400 text-sm break-all">yassin.riyadh.bandar@gmail.com</p>
+                </a>
+                <a href="tel:+9647708932259"
+                    class="contact-card glass rounded-2xl p-8 text-center fade-up cursor-pointer">
+                    <i class="fas fa-phone text-4xl text-cyber mb-4 transition-all"></i>
+                    <h3 class="font-semibold mb-2 transition-colors">Phone</h3>
+                    <p class="text-gray-400 text-sm">+9647708932259</p>
+                </a>
+                <a href="https://maps.app.goo.gl/Rs6zJt2WTXKcgjXr9" target="_blank"
+                    class="contact-card glass rounded-2xl p-8 text-center fade-up cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-4xl text-cyber mb-4 transition-all"></i>
+                    <h3 class="font-semibold mb-2 transition-colors">Location</h3>
+                    <p class="text-gray-400 text-sm">Iraq - Basrah - Abu Al-Khaseeb</p>
+                </a>
+            </div>
+            <div class="flex justify-center gap-6 fade-up flex-wrap">
+                <a href="https://www.researchgate.net/profile/Yassin-Alameer?ev=hdr_xprf" target="_blank"
+                    class="social-researchgate w-14 h-14 glass rounded-full flex items-center justify-center transition-all hover:scale-110">
+                    <i class="fab fa-researchgate text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/yaseen-riyadh-078260212" target="_blank"
+                    class="social-linkedin w-14 h-14 glass rounded-full flex items-center justify-center transition-all hover:scale-110">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/17f5E96TWe/" target="_blank"
+                    class="social-facebook w-14 h-14 glass rounded-full flex items-center justify-center transition-all hover:scale-110">
+                    <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <a href="https://github.com/yassinriyadhbandar-dot" target="_blank"
+                    class="social-github w-14 h-14 glass rounded-full flex items-center justify-center transition-all hover:scale-110">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/ya_ry23" target="_blank"
+                    class="social-instagram w-14 h-14 glass rounded-full flex items-center justify-center transition-all hover:scale-110">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 footer-text cursor-pointer">&copy; 2025 Yaseen Riyadh Alameer. All rights reserved.
+            </p>
+            <p class="text-gray-500 text-sm mt-2">Oil & Gas Engineer | Creative Designer | Web Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smart Navbar - Hide on scroll down, show on scroll up, transparent at top
+        let lastScrollY = window.scrollY;
+        const navbar = document.getElementById('navbar');
+
+        // Initial check - if page is already scrolled, add scrolled class
+        if (window.scrollY > 50) {
+            navbar.classList.add('nav-scrolled');
+        }
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            // Add/remove scrolled class for transparency effect
+            if (currentScrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+
+            // Hide on scroll down, show on scroll up
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('nav-hidden');
+            } else {
+                navbar.classList.remove('nav-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+        });
+
+        // Typing Animation for Name
+        function initTypingAnimation() {
+            const nameElement = document.getElementById('typingName');
+            const fullName = 'Yaseen Riyadh Bandar';
+            let html = '';
+
+            // Create span for each character with staggered animation delay
+            for (let i = 0; i < fullName.length; i++) {
+                const char = fullName[i] === ' ' ? '&nbsp;' : fullName[i];
+                html += `<span class="char" style="animation-delay: ${i * 0.08}s">${char}</span>`;
+            }
+
+            nameElement.innerHTML = html;
+        }
+
+        // Run typing animation on page load
+        window.addEventListener('load', initTypingAnimation);
+
+        // Software Modal Functions
+        function openSoftwareModal(software) {
+            document.getElementById(software + 'Modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSoftwareModal(software) {
+            document.getElementById(software + 'Modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ['prosper', 'gap', 'mbal', 'aspenhysys'].forEach(s => closeSoftwareModal(s));
+            }
+        });
+    </script>
+
+    <!-- PROSPER Modal -->
+    <div id="prosperModal" class="software-modal" onclick="closeSoftwareModal('prosper')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('prosper')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Petex.png" alt="PROSPER" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">PROSPER</h2>
+                    <p class="text-gray-400">Well Performance & Nodal Analysis Software</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                PROSPER is a well performance and nodal analysis software developed by Petroleum Experts (Petex).
+                It is used for designing, analyzing, and optimizing the performance of oil and gas wells.
+            </p>
+            <h3 class="text-lg font-semibold text-cyber mb-3"><i class="fas fa-cog mr-2"></i>Key Characteristics</h3>
+            <ul class="space-y-2 text-gray-300 mb-6">
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Nodal Analysis - Inflow &
+                    outflow performance analysis</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Flexible Well Modeling -
+                    Gas lift, ESP, rod pump</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Multi-phase flow modeling
+                    (oil, gas, water)</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Production optimization
+                    tools</li>
+            </ul>
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-oil-well mr-2"></i>Main Uses</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Well Performance</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Artificial Lift Design</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Production
+                    Optimization</span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Well Intervention</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAP Modal -->
+    <div id="gapModal" class="software-modal" onclick="closeSoftwareModal('gap')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('gap')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Petex.png" alt="GAP" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">GAP</h2>
+                    <p class="text-gray-400">Surface Network Modeling Software</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                GAP is a surface network modeling software developed by Petroleum Experts (Petex).
+                It models, analyzes, and optimizes the production network of oil and gas fields from reservoir to
+                export.
+            </p>
+            <h3 class="text-lg font-semibold text-cyber mb-3"><i class="fas fa-project-diagram mr-2"></i>Key
+                Characteristics</h3>
+            <ul class="space-y-2 text-gray-300 mb-6">
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Surface Network Modeling
+                    - Flowlines, pipelines, manifolds</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Integration with PROSPER
+                    & MBAL</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Multiphase Flow
+                    Simulation</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Field-Wide Optimization
+                </li>
+            </ul>
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-network-wired mr-2"></i>Main Uses</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Network Analysis</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Production Optimization</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Field Development</span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Troubleshooting</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MBAL Modal -->
+    <div id="mbalModal" class="software-modal" onclick="closeSoftwareModal('mbal')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('mbal')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Petex.png" alt="MBAL" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">MBAL</h2>
+                    <p class="text-gray-400">Reservoir Engineering & Material Balance Software</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                MBAL is a reservoir engineering software by Petroleum Experts (Petex) for material balance analysis.
+                It helps understand reservoir drive mechanisms, estimate hydrocarbons in place, and predict future
+                performance.
+            </p>
+            <h3 class="text-lg font-semibold text-cyber mb-3"><i class="fas fa-database mr-2"></i>Key Characteristics
+            </h3>
+            <ul class="space-y-2 text-gray-300 mb-6">
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Material Balance
+                    Calculations</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Dynamic Reservoir
+                    Modeling</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Hydrocarbon Volumes
+                    Estimation</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Drive Mechanism
+                    Identification</li>
+            </ul>
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-chart-area mr-2"></i>Main Uses</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Reservoir Characterization</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Production Forecasting</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">History Matching</span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Field Development</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aspen HYSYS Modal -->
+    <div id="aspenhysysModal" class="software-modal" onclick="closeSoftwareModal('aspenhysys')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('aspenhysys')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Aspen Logo.png" alt="Aspen HYSYS" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Aspen HYSYS</h2>
+                    <p class="text-gray-400">Process Simulation Software</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                Aspen HYSYS is a comprehensive process simulation software developed by AspenTech.
+                It is widely used for modeling and optimizing oil & gas processing, refining, and chemical operations.
+            </p>
+            <h3 class="text-lg font-semibold text-cyber mb-3"><i class="fas fa-flask mr-2"></i>Key Characteristics</h3>
+            <ul class="space-y-2 text-gray-300 mb-6">
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Process Flow Simulation
+                </li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Heat & Material Balance
+                    Calculations</li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Equipment Sizing & Rating
+                </li>
+                <li class="flex items-start gap-2"><i class="fas fa-check text-gold mt-1"></i> Dynamic Simulation</li>
+            </ul>
+            <h3 class="text-lg font-semibold text-gold mb-3"><i class="fas fa-cogs mr-2"></i>Main Uses</h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Gas Processing</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Refinery Operations</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">LNG Plants</span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Dehydration Units</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATA SCIENCE MODALS -->
+    <!-- Microsoft Modal -->
+    <div id="microsoftModal" class="software-modal" onclick="closeSoftwareModal('microsoft')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('microsoft')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Microsoft-Logo-PNG-Images-HD.png" alt="Microsoft" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Microsoft Office</h2>
+                    <p class="text-gray-400">Productivity Suite</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Comprehensive proficiency in Microsoft Office Suite including Word, Excel,
+                PowerPoint, and Outlook for professional documentation and data management.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Excel (Advanced)</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Word</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">PowerPoint</span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Outlook</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Python Modal -->
+    <div id="pythonModal" class="software-modal" onclick="closeSoftwareModal('python')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('python')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/python.svg" alt="Python" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Python</h2>
+                    <p class="text-gray-400">Programming Language</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Advanced Python programming for data analysis, machine learning, automation,
+                and petroleum engineering applications using NumPy, Pandas, Scikit-learn, and TensorFlow.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Data Analysis</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Machine Learning</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Automation</span>
+                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">API Development</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MATLAB Modal -->
+    <div id="matlabModal" class="software-modal" onclick="closeSoftwareModal('matlab')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('matlab')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Matlab.png" alt="MATLAB" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">MATLAB</h2>
+                    <p class="text-gray-400">Technical Computing</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Technical computing environment for numerical analysis, algorithm development,
+                and engineering simulations in petroleum applications.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Numerical Analysis</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Signal Processing</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Visualization</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power BI Modal -->
+    <div id="powerbiModal" class="software-modal" onclick="closeSoftwareModal('powerbi')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('powerbi')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/power bi.svg" alt="Power BI" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Power BI</h2>
+                    <p class="text-gray-400">Business Intelligence</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Creating interactive dashboards and data visualizations for production
+                monitoring, KPI tracking, and business analytics.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Dashboards</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">DAX Formulas</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Data Modeling</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SQL Modal -->
+    <div id="sqlModal" class="software-modal" onclick="closeSoftwareModal('sql')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('sql')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/sql.svg" alt="SQL" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">SQL</h2>
+                    <p class="text-gray-400">Database Management</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Database querying and management for production data, well performance
+                analysis, and data extraction from enterprise systems.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Query Optimization</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Data Extraction</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Database Design</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spotfire Modal -->
+    <div id="spotfireModal" class="software-modal" onclick="closeSoftwareModal('spotfire')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('spotfire')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/spotfire.svg" alt="Spotfire" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Spotfire</h2>
+                    <p class="text-gray-400">Advanced Analytics</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">TIBCO Spotfire for advanced analytics, production surveillance, and
+                interactive data exploration in oil & gas operations.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Production Surveillance</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Well Analysis</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Real-time
+                    Monitoring</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Primavera Modal -->
+    <div id="primaveraModal" class="software-modal" onclick="closeSoftwareModal('primavera')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('primavera')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/logo-primavera-p6.png" alt="Primavera" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Primavera P6</h2>
+                    <p class="text-gray-400">Project Management</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Enterprise project portfolio management for scheduling, resource planning, and
+                tracking oil & gas capital projects.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Project Scheduling</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Resource Management</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Cost Control</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAP Modal -->
+    <div id="sapModal" class="software-modal" onclick="closeSoftwareModal('sap')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('sap')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/SAP-Logo.png" alt="SAP" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">SAP</h2>
+                    <p class="text-gray-400">Enterprise Resource Planning</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">SAP enterprise system for materials management, procurement workflows, and
+                integrated business operations.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Materials Management</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Procurement</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Workflow</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Machine Learning Modal -->
+    <div id="mlModal" class="software-modal" onclick="closeSoftwareModal('ml')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('ml')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/machine learning.svg" alt="ML" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Machine Learning</h2>
+                    <p class="text-gray-400">AI & Predictive Analytics</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Developing predictive models for production optimization, well failure
+                prediction, and reservoir characterization using supervised and unsupervised learning.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Predictive Maintenance</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Production Forecasting</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Classification</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deep Learning Modal -->
+    <div id="dlModal" class="software-modal" onclick="closeSoftwareModal('dl')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('dl')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/deep learning.svg" alt="DL" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Deep Learning</h2>
+                    <p class="text-gray-400">Neural Networks</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Building neural network architectures for complex pattern recognition, image
+                analysis, and advanced time-series forecasting.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">TensorFlow</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">CNN/RNN</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">LSTM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Series Modal -->
+    <div id="timeseriesModal" class="software-modal" onclick="closeSoftwareModal('timeseries')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('timeseries')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/time series analysis.svg" alt="Time Series" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Time Series Analysis</h2>
+                    <p class="text-gray-400">Temporal Data Analytics</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Analyzing production trends, forecasting future performance, and detecting
+                patterns in temporal well data using ARIMA, Prophet, and LSTM models.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Production Forecasting</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Trend Detection</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Seasonality</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anomaly Detection Modal -->
+    <div id="anomalyModal" class="software-modal" onclick="closeSoftwareModal('anomaly')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('anomaly')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/anomaly detection.svg" alt="Anomaly Detection" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Anomaly Detection</h2>
+                    <p class="text-gray-400">Outlier Analysis</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Implementing algorithms to detect abnormal well behavior, equipment failures,
+                and production anomalies before they become critical issues.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Equipment Monitoring</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Early Warning</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Isolation Forest</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LLM Modal -->
+    <div id="llmModal" class="software-modal" onclick="closeSoftwareModal('llm')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('llm')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/llm & ai agents.svg" alt="LLM" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">LLM & AI Agents</h2>
+                    <p class="text-gray-400">Generative AI</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Working with Large Language Models and AI agents for document analysis,
+                automated reporting, and intelligent data extraction in oil & gas applications.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">GPT Integration</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">RAG Systems</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Prompt Engineering</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PETROLEUM MODALS -->
+    <!-- Techlog Modal -->
+    <div id="techlogModal" class="software-modal" onclick="closeSoftwareModal('techlog')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('techlog')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/techlog.png" alt="Techlog" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Techlog</h2>
+                    <p class="text-gray-400">Well Log Analysis</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Schlumberger's wellbore software for formation evaluation, log interpretation,
+                and petrophysical analysis with integrated datasets.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Log Interpretation</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Petrophysics</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Formation
+                    Evaluation</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Petrel Modal -->
+    <div id="petrelModal" class="software-modal" onclick="closeSoftwareModal('petrel')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('petrel')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/petrel.png" alt="Petrel" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Petrel</h2>
+                    <p class="text-gray-400">Reservoir Modeling</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Industry-leading E&P software for seismic interpretation, geological modeling,
+                and reservoir simulation workflows.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Geological Modeling</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Seismic Interpretation</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">3D Visualization</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CMG Modal -->
+    <div id="cmgModal" class="software-modal" onclick="closeSoftwareModal('cmg')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('cmg')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/cmg.png" alt="CMG" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">CMG</h2>
+                    <p class="text-gray-400">Reservoir Simulation</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Computer Modelling Group software for dynamic reservoir simulation, including
+                IMEX, GEM, and STARS for various reservoir types.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Black Oil (IMEX)</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Compositional (GEM)</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Thermal (STARS)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Landmark Modal -->
+    <div id="landmarkModal" class="software-modal" onclick="closeSoftwareModal('landmark')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('landmark')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/landmark drilling.png" alt="Landmark" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Landmark</h2>
+                    <p class="text-gray-400">Drilling Engineering</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Halliburton Landmark software suite for well planning, drilling operations,
+                and directional well design.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Well Planning</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Directional Drilling</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Torque & Drag</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- IP Modal -->
+    <div id="ipsoftwareModal" class="software-modal" onclick="closeSoftwareModal('ipsoftware')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('ipsoftware')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/IP.jpg" alt="IP" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">IP (Interactive Petrophysics)</h2>
+                    <p class="text-gray-400">Petrophysical Analysis</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">LR Senergy software for advanced petrophysical workflows, multi-well analysis,
+                and formation evaluation.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Log Analysis</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Multi-well Projects</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Custom Workflows</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Didger Modal -->
+    <div id="didgerModal" class="software-modal" onclick="closeSoftwareModal('didger')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('didger')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Didger.jpg" alt="Didger" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Didger</h2>
+                    <p class="text-gray-400">Digitizing & Georeferencing</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Golden Software tool for digitizing, georeferencing, and converting paper maps
+                to digital formats for geological analysis.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Map Digitizing</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Georeferencing</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Data Conversion</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Surfer Modal -->
+    <div id="surferModal" class="software-modal" onclick="closeSoftwareModal('surfer')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('surfer')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Surfer.png" alt="Surfer" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Surfer</h2>
+                    <p class="text-gray-400">Contouring & Mapping</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Golden Software for creating contour maps, 3D surface visualizations, and
+                gridding for geological and reservoir data.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Contour Maps</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">3D Surfaces</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Kriging</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- AutoCAD Modal -->
+    <div id="autocadModal" class="software-modal" onclick="closeSoftwareModal('autocad')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('autocad')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Autocad.png" alt="AutoCAD" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">AutoCAD</h2>
+                    <p class="text-gray-400">Technical Drawing</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Industry-standard CAD software for technical drawings, wellbore schematics,
+                and facility layouts in oil & gas engineering.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Technical Drawings</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Well Schematics</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">P&ID</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nexus Modal -->
+    <div id="nexusModal" class="software-modal" onclick="closeSoftwareModal('nexus')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('nexus')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/nexus_software_system_logo.jfif" alt="Nexus" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Nexus</h2>
+                    <p class="text-gray-400">Reservoir Simulation</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Next-generation reservoir simulator for high-resolution modeling and
+                integrated field management workflows.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">High-Resolution</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Field Management</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Parallel Computing</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- WEB DEV MODALS -->
+    <!-- HTML5 Modal -->
+    <div id="html5Modal" class="software-modal" onclick="closeSoftwareModal('html5')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('html5')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <i class="fab fa-html5 text-6xl text-orange-500"></i>
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">HTML5</h2>
+                    <p class="text-gray-400">Markup Language</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Modern HTML5 for semantic, accessible, and SEO-optimized web page structure
+                with multimedia and API integration capabilities.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Semantic structure</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Forms & Validation</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Canvas & SVG</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS3 Modal -->
+    <div id="css3Modal" class="software-modal" onclick="closeSoftwareModal('css3')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('css3')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <i class="fab fa-css3-alt text-6xl text-blue-500"></i>
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">CSS3</h2>
+                    <p class="text-gray-400">Styling Language</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Advanced CSS3 for responsive layouts, animations, flexbox/grid systems, and
+                modern UI styling with Tailwind CSS proficiency.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Flexbox & Grid</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Animations</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Tailwind CSS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Modal -->
+    <div id="javascriptModal" class="software-modal" onclick="closeSoftwareModal('javascript')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('javascript')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <i class="fab fa-js-square text-6xl text-yellow-400"></i>
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">JavaScript</h2>
+                    <p class="text-gray-400">Programming Language</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">ES6+ JavaScript for dynamic web applications, DOM manipulation, API
+                integration, and interactive user experiences.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">ES6+ Features</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">DOM Manipulation</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Async/Await</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREATIVE MODALS -->
+    <!-- CapCut Modal -->
+    <div id="capcutModal" class="software-modal" onclick="closeSoftwareModal('capcut')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('capcut')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/Capcut-Logo-PNG.png" alt="CapCut" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">CapCut</h2>
+                    <p class="text-gray-400">Video Editing</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Professional video editing for social media content, short-form videos, and
+                engaging visual storytelling with effects and transitions.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Video Editing</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Effects</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Social Media</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premiere Pro Modal -->
+    <div id="premiereModal" class="software-modal" onclick="closeSoftwareModal('premiere')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('premiere')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/adobe-premiere-pro-icon-free-png.webp" alt="Premiere" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Premiere Pro</h2>
+                    <p class="text-gray-400">Professional Video Editing</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Adobe Premiere Pro for professional video production, color grading,
+                multi-track editing, and high-quality exports.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Video Production</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Color Grading</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Audio Mixing</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- After Effects Modal -->
+    <div id="aftereffectsModal" class="software-modal" onclick="closeSoftwareModal('aftereffects')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('aftereffects')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/adobe-after-effect-logo-square-rounded-adobe-after-effect-logo-adobe-after-effect-logo-free-download-free-png.webp"
+                    alt="After Effects" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">After Effects</h2>
+                    <p class="text-gray-400">Motion Graphics</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Adobe After Effects for motion graphics, visual effects, animations, and
+                professional video compositing.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Motion Graphics</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Visual Effects</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Compositing</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photoshop Modal -->
+    <div id="photoshopModal" class="software-modal" onclick="closeSoftwareModal('photoshop')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('photoshop')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/adobe-photoshop-logo.png" alt="Photoshop" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Photoshop</h2>
+                    <p class="text-gray-400">Image Editing</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Adobe Photoshop for professional image editing, photo manipulation, digital
+                art, and graphic design projects.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Photo Editing</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Compositing</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Digital Art</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Illustrator Modal -->
+    <div id="illustratorModal" class="software-modal" onclick="closeSoftwareModal('illustrator')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('illustrator')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/illustrator.jfif" alt="Illustrator" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Illustrator</h2>
+                    <p class="text-gray-400">Vector Graphics</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Adobe Illustrator for vector graphics, logo design, illustrations, and
+                scalable artwork creation.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Vector Design</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Logo Creation</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Illustrations</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Canva Modal -->
+    <div id="canvaModal" class="software-modal" onclick="closeSoftwareModal('canva')">
+        <div class="software-modal-content p-8" onclick="event.stopPropagation()">
+            <span class="software-modal-close" onclick="closeSoftwareModal('canva')">&times;</span>
+            <div class="flex items-center gap-4 mb-6">
+                <img src="assets/canva.png" alt="Canva" class="w-16 h-16 rounded-xl">
+                <div>
+                    <h2 class="text-2xl font-bold text-gold">Canva</h2>
+                    <p class="text-gray-400">Graphic Design</p>
+                </div>
+            </div>
+            <p class="text-gray-300 mb-6">Canva for quick graphic design, presentations, social media posts, and
+                professional marketing materials.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gold/20 text-gold rounded-full text-sm">Quick Design</span>
+                <span class="px-3 py-1 bg-cyber/20 text-cyber rounded-full text-sm">Presentations</span>
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">Social Media</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
