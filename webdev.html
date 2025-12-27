@@ -477,11 +477,8 @@
 
                     <div class="device-frame phone-frame mb-4">
                         <div class="screen relative">
-                            <video muted loop playsinline poster="assets/Restaurant-web.png" onmouseenter="this.play()"
-                                onmouseleave="this.pause()">
-                                <source src="https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/Design2.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <img src="assets/Restaurant-web.png" alt="Restaurant Website"
+                                class="w-full h-full object-cover">
                             <div class="play-overlay">
                                 <div class="play-btn"><i class="fas fa-play"></i></div>
                             </div>
@@ -509,12 +506,7 @@
 
                     <div class="device-frame laptop-frame mb-4">
                         <div class="screen relative">
-                            <video muted loop playsinline poster="assets/Watch-web.png" onmouseenter="this.play()"
-                                onmouseleave="this.pause()">
-                                <source
-                                    src="https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/Brand%20Market%20Website.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <img src="assets/Watch-web.png" alt="Watch Website" class="w-full h-full object-cover">
                             <div class="play-overlay">
                                 <div class="play-btn"><i class="fas fa-play"></i></div>
                             </div>
@@ -544,16 +536,11 @@
 
                     <div class="device-frame monitor-frame">
                         <div class="screen relative">
-                            <video muted loop playsinline poster="assets/Cars-web.png" onmouseenter="this.play()"
-                                onmouseleave="this.pause()">
-                                <source src="https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/CarsWebsite2.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <img src="assets/Cars-web.png" alt="Cars Website" class="w-full h-full object-cover">
                             <div class="play-overlay">
                                 <div class="play-btn"><i class="fas fa-play"></i></div>
                             </div>
                         </div>
-
                     </div>
                     <div class="monitor-stand"></div>
                     <div class="monitor-base"></div>
@@ -634,11 +621,7 @@
                         <div>
                             <div class="device-frame monitor-frame">
                                 <div class="screen relative">
-                                    <video muted loop playsinline poster="assets/O&G-web.png" onmouseenter="this.play()"
-                                        onmouseleave="this.pause()">
-                                        <source src="https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/ROP.mp4"
-                                            type="video/mp4">
-                                    </video>
+                                    <img src="assets/O&G-web.png" alt="ROP Tool" class="w-full h-full object-cover">
                                     <div class="play-overlay">
                                         <div class="play-btn"><i class="fas fa-play"></i></div>
                                     </div>
@@ -761,9 +744,10 @@
         <span class="modal-close" onclick="closeVideoModal()">&times;</span>
         <div class="modal-content" onclick="event.stopPropagation()">
             <div class="modal-video-container">
-                <video id="modalVideo" controls>
-                    <source id="modalVideoSource" src="" type="video/mp4">
-                </video>
+                <iframe id="youtubePlayer" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
             <div class="p-6">
                 <h3 id="modalTitle" class="text-2xl font-bold text-gold mb-2"></h3>
@@ -804,25 +788,25 @@
             lastScrollY = currentScrollY;
         });
 
-        // Video Modal Data
+        // Video Modal Data - YouTube Video IDs
         const projectData = {
             restaurant: {
-                video: 'https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/Design2.mp4',
+                videoId: 'kpqPoBwEBD4',
                 title: 'Bilingual Restaurant Platform',
                 description: 'A complete, high-conversion digital solution designed for the culinary industry. Features multi-page, bilingual interface (Arabic & English) with seamless UX, fast loading times, and mobile-first responsive design. Built with HTML5, CSS3, and Vanilla JavaScript.'
             },
             watches: {
-                video: 'https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/Brand%20Market%20Website.mp4',
+                videoId: 'QV5JPD3vYlQ',
                 title: 'Luxury Watch E-Commerce Experience',
                 description: 'A sophisticated web gallery tailored for premium timepieces, emphasizing elegance and high-end branding. Leveraging creative design expertise, this project blends luxury aesthetics with functional e-commerce layouts using Tailwind CSS glassmorphism effects.'
             },
             automotive: {
-                video: 'https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/CarsWebsite2.mp4',
+                videoId: 'nh7IIYi9UJc',
                 title: 'Dynamic Automotive Showcase',
                 description: 'A high-performance automotive gallery designed for car enthusiasts and dealerships. Features optimized image handling, fluid animations, and premium browsing experience on both desktop and mobile devices with interactive galleries.'
             },
             rop: {
-                video: 'https://cfpz71rnl4p8b2cj.public.blob.vercel-storage.com/ROP.mp4',
+                videoId: 'PZtHsLRMHJg',
                 title: 'ROP Prediction & Optimization Tool',
                 description: 'An advanced engineering dashboard bridging Petroleum Engineering and Data Science. Analyzes WOB, RPM, Flow GPM, and Torque to predict and optimize ROP using ML algorithms with R² = 0.863 accuracy. Features complex data visualizations for real-time oilfield decision-making.'
             }
@@ -831,24 +815,23 @@
         function openVideoModal(projectKey) {
             const project = projectData[projectKey];
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('modalVideo');
-            const source = document.getElementById('modalVideoSource');
+            const iframe = document.getElementById('youtubePlayer');
 
-            source.src = project.video;
-            video.load();
+            // Set YouTube embed URL with autoplay
+            iframe.src = `https://www.youtube.com/embed/${project.videoId}?autoplay=1&rel=0`;
             document.getElementById('modalTitle').textContent = project.title;
             document.getElementById('modalDescription').textContent = project.description;
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            video.play();
         }
 
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('modalVideo');
+            const iframe = document.getElementById('youtubePlayer');
 
-            video.pause();
+            // Stop video by clearing src
+            iframe.src = '';
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
