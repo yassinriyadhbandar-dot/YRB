@@ -334,9 +334,9 @@
     <!-- Navigation - Smart Hide/Show -->
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-14">
-                <a href="#home" class="text-xl font-bold gradient-text">YRB</a>
-                <div class="hidden md:flex space-x-5 text-sm">
+            <div class="flex justify-between items-center h-16">
+                <a href="#home" class="text-2xl font-bold gradient-text">YRB</a>
+                <div class="hidden md:flex space-x-8 items-center">
                     <a href="#home" class="hover:text-cyber transition-colors">Home</a>
                     <a href="#about" class="hover:text-cyber transition-colors">About</a>
                     <a href="#experience" class="hover:text-cyber transition-colors">Experience</a>
@@ -347,8 +347,10 @@
                     <a href="library.html" class="hover:text-gold transition-colors"><i
                             class="fas fa-book mr-1"></i>Library</a>
                     <a href="#contact" class="hover:text-cyber transition-colors">Contact</a>
+                    <button id="translate-btn" onclick="toggleLanguage()"><i class="fas fa-globe"></i> العربية</button>
                 </div>
-                <button id="menuBtn" class="md:hidden text-xl"><i class="fas fa-bars"></i></button>
+                <div id="google_translate_element" style="display:none;"></div>
+                <button id="menuBtn" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
             </div>
         </div>
         <div id="mobileMenu" class="hidden md:hidden glass">
@@ -362,6 +364,8 @@
                 <a href="english.html" class="block py-2 hover:text-cyber">English Lab</a>
                 <a href="library.html" class="block py-2 hover:text-gold"><i class="fas fa-book mr-1"></i>Library</a>
                 <a href="#contact" class="block py-2 hover:text-cyber">Contact</a>
+                <button id="translate-btn-mobile" onclick="toggleLanguage()" class="w-full py-2 mt-2"><i
+                        class="fas fa-globe"></i> العربية</button>
             </div>
         </div>
     </nav>
@@ -382,9 +386,10 @@
                     </div>
                 </div>
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-2 animate-slide-in">
-                    <span class="gradient-text">Yaseen Riyadh Alameer</span>
+                    <span class="gradient-text" data-i18n="Yaseen Riyadh Alameer">Yaseen Riyadh Alameer</span>
                 </h1>
-                <p class="text-xl sm:text-2xl text-gray-400 mb-2">
+                <p class="text-xl sm:text-2xl text-gray-400 mb-2"
+                    data-i18n="Oil & Gas Engineer | Creative Designer | Web Developer">
                     Oil & Gas Engineer | Creative Designer | Web Developer
                 </p>
                 <p class="text-gray-500 mb-4 flex items-center justify-center gap-2">
@@ -398,11 +403,11 @@
 
                     <a href="#contact"
                         class="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-all border border-cyber/50 flex items-center justify-center gap-2 hover:text-cyber">
-                        <i class="fas fa-envelope"></i> Contact Me
+                        <i class="fas fa-envelope"></i> <span data-i18n="Contact Me">Contact Me</span>
                     </a>
                     <a href="Files/Certificates.pdf" target="_blank"
                         class="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-all border border-gold/50 flex items-center justify-center gap-2 hover:text-gold">
-                        <i class="fas fa-certificate"></i> My Certificates
+                        <i class="fas fa-certificate"></i> <span data-i18n="My Certificates">My Certificates</span>
                     </a>
                 </div>
             </div>
@@ -413,12 +418,13 @@
     <section id="about" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-up">
-                <h2 class="text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+                <h2 class="text-4xl font-bold mb-4"><span data-i18n="About">About</span> <span class="gradient-text"
+                        data-i18n="Me">Me</span></h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="glass rounded-3xl p-8 fade-up hover:border-cyber/30 transition-all">
-                    <h3 class="text-2xl font-bold mb-4 text-cyber">Who I Am</h3>
+                    <h3 class="text-2xl font-bold mb-4 text-cyber" data-i18n="Who I Am">Who I Am</h3>
                     <p class="text-gray-300 leading-relaxed mb-4">
                         I'm a passionate professional from Basrah, Iraq, with a unique blend of expertise spanning Oil &
                         Gas Engineering, Data Science, and Creative Design. My journey combines technical precision with
@@ -456,94 +462,159 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-darker/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-up">
-                <h2 class="text-4xl font-bold mb-4">Professional <span class="gradient-text">Experience</span></h2>
-                <p class="text-gray-400">My journey in the Oil & Gas industry</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
-            </div>
+    
+<!-- Experience Section -->
+<section id="experience" class="py-20 bg-darker/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 fade-up">
+            <h2 class="text-4xl font-bold mb-4">Professional <span class="gradient-text">Experience</span></h2>
+            <p class="text-gray-400">My journey in the Oil & Gas industry</p>
+            <div class="w-24 h-1 bg-gradient-to-r from-cyber to-gold mx-auto mt-4"></div>
+        </div>
 
-            <div class="max-w-4xl mx-auto">
-                <!-- Timeline -->
-                <div class="relative">
-                    <!-- Timeline Line -->
-                    <div
-                        class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyber via-gold to-cyber">
-                    </div>
+        <div class="max-w-4xl mx-auto">
+            <!-- Timeline -->
+            <div class="relative">
 
-                    <!-- Experience 1 - Current -->
-                    <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
-                        <div class="md:w-1/2 md:pr-12 mb-4 md:mb-0">
-                            <div class="exp-card glass rounded-2xl p-6 hover:glow transition-all">
-                                <div class="flex items-center gap-2 mb-2">
-                                    <span
-                                        class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Current</span>
-                                    <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">2024 -
-                                        Present</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-gold mb-1">Field Production Operator</h3>
-                                <p class="text-cyber font-medium mb-3">Anton Oil Company | Majnoon Oil Field, Basrah</p>
-                                <ul class="text-gray-300 text-sm space-y-1 text-left">
-                                    <li>• Operating production facilities (separators, pumps, compressors, etc.).</li>
-                                    <li>• Coordinating with Control Room & raising SAP notifications.</li>
-                                    <li>• Following HSE standards & SOPs in all operations.</li>
-                                </ul>
+                <!-- Timeline Line -->
+                <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyber via-gold to-cyber">
+                </div>
+
+                <!-- Experience 1 - Current -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
+
+                    <div class="md:w-1/2 md:pr-12 mb-4 md:mb-0">
+                        <div class="exp-card glass rounded-2xl p-6 hover:glow transition-all">
+
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Current</span>
+                                <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Feb. 2026 - Present</span>
                             </div>
-                        </div>
-                        <div
-                            class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-dark glow-gold">
-                        </div>
-                        <div class="md:w-1/2 md:pl-12"></div>
-                    </div>
 
-                    <!-- Experience 2 -->
-                    <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
-                        <div class="md:w-1/2 md:pr-12"></div>
-                        <div
-                            class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber rounded-full border-4 border-dark glow">
-                        </div>
-                        <div class="md:w-1/2 md:pl-12">
-                            <div class="exp-card glass rounded-2xl p-6 hover:glow transition-all">
-                                <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">2023</span>
-                                <h3 class="text-xl font-bold text-gold mt-2 mb-1">Assistant Production Engineer</h3>
-                                <p class="text-cyber font-medium mb-3">Anton Oil Company | Majnoon Oil Field, Basrah</p>
-                                <ul class="text-gray-300 text-sm space-y-1">
-                                    <li>• Daily production monitoring & well performance analysis.</li>
-                                    <li>• Optimizing field operations & reducing downtime.</li>
-                                    <li>• Well testing, data interpretation & technical reports.</li>
-                                </ul>
-                            </div>
+                            <h3 class="text-xl font-bold text-gold mb-1">Field Production Operator</h3>
+
+                            <p class="text-cyber font-medium mb-3">TotalEnergies Co. | Artawi Oil Field, Basrah</p>
+
+                            <ul class="text-gray-300 text-sm space-y-1 text-left">
+                                <li>• Operating production facilities (separators, pumps, compressors, etc.).</li>
+                                <li>• Coordinating or communicating effectively with Control Room</li>
+                                <li>• Collecting Samples, either by bottle or labeled cylinders for laboratory analysis also adjusting chemical injection by changing the dosing rate.</li>
+                                <li>• Coordinated and supervised simultaneous operations (SIMOPS) or co-activities to ensure safe execution of multiple concurrent activities within the assigned area.</li>
+                                <li>• Acted as Area Authority, conducting site inspections, identifying hazards and confirming all safety measures before approving PTW.</li>
+                                <li>• Reviewed, verified, authorized, and issued PTW documentation.</li>
+                                <li>• Performed proper handover to the next shift to ensure smooth operations.</li>
+                                <li>• Strictly followed and comply with HSE standards and procedures.</li>
+                            </ul>
+
                         </div>
                     </div>
 
-                    <!-- Experience 3 -->
-                    <div class="relative flex flex-col md:flex-row items-start fade-up">
-                        <div class="md:w-1/2 md:pr-12">
-                            <div class="exp-card glass rounded-2xl p-6 hover:glow-gold transition-all">
-                                <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Jul - Dec
-                                    2022</span>
-                                <h3 class="text-xl font-bold text-gold mt-2 mb-1">Production Solutions Engineer Trainee
-                                </h3>
-                                <p class="text-cyber font-medium mb-3">Halliburton Company | Basrah</p>
-                                <ul class="text-gray-300 text-sm space-y-1 text-left">
-                                    <li>• Coiled tubing (CT) workover operations</li>
-                                    <li>• Acidizing jobs, fishing, milling & cleanout operations.</li>
-                                    <li>• Nitrogen lifting & CT drilling applications.</li>
-                                    <li>• Well intervention techniques & field communication.</li>
-                                </ul>
-                            </div>
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-dark glow-gold">
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+
+
+                <!-- Experience 2 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
+
+                    <div class="md:w-1/2 md:pr-12"></div>
+
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber rounded-full border-4 border-dark glow">
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="exp-card glass rounded-2xl p-6 hover:glow transition-all">
+
+                            <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Nov. 2023 - Feb. 2026</span>
+
+                            <h3 class="text-xl font-bold text-gold mt-2 mb-1">Field Production Operator</h3>
+
+                            <p class="text-cyber font-medium mb-3">Anton Oil Company | Majnoon Oil Field, Basrah</p>
+
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Monitor and operate field equipment, including pumps, compressors, heat exchangers, reactors, and control valves.</li>
+                                <li>• Conduct routine plant inspections to ensure safe and stable operation of process units.</li>
+                                <li>• Record operational parameters such as pressure, temperature, flow, and tank levels.</li>
+                                <li>• Coordinate with panel operators and maintenance teams during start-up, shutdown, and troubleshooting activities.</li>
+                                <li>• Perform line-up activities, equipment isolation, draining, venting, and nitrogen purging operations.</li>
+                                <li>• Raise notifications in SAP for preventive maintenance (PM) or corrective maintenance (CM), and coordinate with support teams such as instrumentation, mechanical, and others.</li>
+                                <li>• Ensure compliance with HSE regulations and refinery safety procedures.</li>
+                                <li>• Identify abnormal conditions and report operational issues to supervisors immediately.</li>
+                                <li>• Support preventive maintenance and equipment preparation for maintenance work.</li>
+                                <li>• Maintain housekeeping standards and ensure operational reliability in the unit area.</li>
+                            </ul>
+
                         </div>
-                        <div
-                            class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-dark glow-gold">
-                        </div>
-                        <div class="md:w-1/2 md:pl-12"></div>
                     </div>
                 </div>
+
+
+                <!-- Experience 3 -->
+                <div class="relative flex flex-col md:flex-row items-start mb-12 fade-up">
+
+                    <div class="md:w-1/2 md:pr-12">
+                        <div class="exp-card glass rounded-2xl p-6 hover:glow-gold transition-all">
+
+                            <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Aug. 2022 - Nov. 2023</span>
+
+                            <h3 class="text-xl font-bold text-gold mt-2 mb-1">Loading Master</h3>
+
+                            <p class="text-cyber font-medium mb-3">Jannat Al-Ferdus Company | Terminal 8 & 9, Basrah</p>
+
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Supervised the safe loading and unloading of crude oil and petroleum products.</li>
+                                <li>• Coordinated cargo transfer operations between vessels and terminal facilities.</li>
+                                <li>• Monitored cargo quantities, tank levels, and transfer activities.</li>
+                                <li>• Performed pre-loading safety checks and operational inspections.</li>
+                                <li>• Prepared cargo documentation and operational reports.</li>
+                                <li>• Coordinated with marine, operations, and control room teams to ensure safe execution.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-dark glow-gold">
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-12"></div>
+                </div>
+
+
+                <!-- Experience 4 -->
+                <div class="relative flex flex-col md:flex-row items-start fade-up">
+
+                    <div class="md:w-1/2 md:pr-12"></div>
+
+                    <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyber rounded-full border-4 border-dark glow">
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-12">
+                        <div class="exp-card glass rounded-2xl p-6 hover:glow-gold transition-all">
+
+                            <span class="px-3 py-1 bg-cyber/20 text-cyber text-xs rounded-full">Jul - Dec 2022</span>
+
+                            <h3 class="text-xl font-bold text-gold mt-2 mb-1">Production Solutions Engineer Trainee</h3>
+
+                            <p class="text-cyber font-medium mb-3">Halliburton Company | Basrah</p>
+
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• Coiled tubing (CT) workover operations</li>
+                                <li>• Acidizing jobs, fishing, milling & cleanout operations.</li>
+                                <li>• Nitrogen lifting & CT drilling applications.</li>
+                                <li>• Well intervention techniques & field communication.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-darker/50">
@@ -779,7 +850,7 @@
                     </div>
                     <div class="skill-icon glass rounded-2xl p-4 w-24 text-center hover:glow cursor-pointer"
                         onclick="openSoftwareModal('photoshop')">
-                        <img src="assets/Adobe-Photoshop-Logo.png" alt="adobe-photoshop-logo"
+                        <img src="assets/adobe-photoshop-logo.png" alt="adobe-photoshop-logo"
                             class="w-10 h-10 mx-auto mb-2 rounded-lg">
                         <p class="text-xs">Photoshop</p>
                     </div>
@@ -1863,6 +1934,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Translation Scripts -->
+    <script src="translations.js"></script>
+    <script src="translate.js"></script>
 </body>
 
 </html>
